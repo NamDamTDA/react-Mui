@@ -15,7 +15,7 @@ const Storetitle = (props) => {
 					</Typography>
 				</Box>
 			</Box>
-            <Shippingarea/>
+			<Shippingarea />
 		</div>
 	);
 };

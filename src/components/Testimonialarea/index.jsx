@@ -36,7 +36,7 @@ const Testimonialarea = (props) => {
 						</Typography>
 					</Box>
 				</Box>
-                <Brandarea/>
+				<Brandarea />
 			</Box>
 		</div>
 	);
