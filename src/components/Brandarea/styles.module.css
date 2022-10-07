@@ -1,0 +1,11 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: 19%;
+    margin-top: 98px;
+}
+
+.icone {
+	margin-right: 18px;
+}
