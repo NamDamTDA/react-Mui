@@ -1,7 +1,8 @@
+import React from 'react';
 import { FacebookOutlined, GitHub, Instagram, Pinterest, Twitter } from '@mui/icons-material';
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
-import React from 'react';
 import styles from './styles.module.css';
+
 const content = {
 	brand: {
 		name: 'LUCANI COMPANY',

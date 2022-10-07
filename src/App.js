@@ -1,19 +1,20 @@
-import { createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material';
 import './App.css';
 import NotFound from './components/NotFound';
 import AdminLayout from './pages/AdminLayout';
 import HomePage from './pages/Client/HomePage/HomePage';
 import WebsiteLayout from './pages/WebsiteLayout';
+
 const theme = createTheme({
 	typography: {
 		allVariants: {
 			fontFamily: 'Rubik',
 		},
 	},
-	
 });
+
 const App = () => {
 	return (
 		<div>

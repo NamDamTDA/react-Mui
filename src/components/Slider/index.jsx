@@ -1,6 +1,9 @@
-import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from '@mui/icons-material';
-import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
+import {
+	ArrowBackIosNewOutlined,
+	ArrowForwardIosOutlined,
+} from '@mui/icons-material';
+import { Box, Grid, Typography } from '@mui/material';
 import styles from './styles.module.css';
 
 const slider = [
@@ -11,7 +14,13 @@ const slider = [
 		title2: 'decoration',
 		desc: 'Discount 20% Off For Lukani Members',
 		button: (
-			<Typography component="a" href="#" target="_blank" rel="noreferrer" variant="button">
+			<Typography
+				component="a"
+				href="#"
+				target="_blank"
+				rel="noreferrer"
+				variant="button"
+			>
 				Discover Now
 			</Typography>
 		),
