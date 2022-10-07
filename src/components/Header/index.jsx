@@ -40,8 +40,7 @@ const Header = () => {
 		<div>
 			<Box
 				component="header"
-				className={styles.header_transparent}
-				classes={styles.sticky_header}
+				className={`${styles.header_transparent} ${styles.sticky_header}`}
 			>
 				<Container className={styles.container}>
 					<Toolbar disableGutters className={styles.row}>
