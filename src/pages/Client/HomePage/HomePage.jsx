@@ -1,18 +1,18 @@
 import React from 'react';
-import Newsletter from '../../../components/Newsletter';
-import Productarea from '../../../components/Productarea';
+import NewsLetter from '../../../components/NewsLetter';
+import ProductArea from '../../../components/ProductArea';
 import Banner from '../../../components/Slider';
-import Storetitle from '../../../components/Storetitle';
-import Testimonialarea from '../../../components/Testimonialarea';
+import StoreTitle from '../../../components/StoreTitle';
+import TestimonialArea from '../../../components/TestimonialArea';
 
 const HomePage = (props) => {
 	return (
 		<div>
 			<Banner/>
-			<Storetitle/>
-			<Productarea/>
-			<Testimonialarea/>
-			<Newsletter/>
+			<StoreTitle/>
+			<ProductArea/>
+			<TestimonialArea/>
+			<NewsLetter/>
 		</div>
 	);
 };

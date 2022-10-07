@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import styles from './styles.module.css';
-import Shippingarea from '../Shippingarea';
+import ShippingArea from '../ShippingArea';
 
-const Storetitle = (props) => {
+const StoreTitle = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.lstore_title}>
@@ -15,11 +15,11 @@ const Storetitle = (props) => {
 					</Typography>
 				</Box>
 			</Box>
-			<Shippingarea />
+			<ShippingArea />
 		</div>
 	);
 };
 
-Storetitle.propTypes = {};
+StoreTitle.propTypes = {};
 
-export default Storetitle;
+export default StoreTitle;

@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import brands from '../../constants/brands';
 
-const Brandarea = (props) => {
+const BrandArea = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.brand_area}>
@@ -26,6 +26,6 @@ const Brandarea = (props) => {
 	);
 };
 
-Brandarea.propTypes = {};
+BrandArea.propTypes = {};
 
-export default Brandarea;
+export default BrandArea;

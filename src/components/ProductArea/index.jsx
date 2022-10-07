@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid, Rating, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import products from '../../constants/products';
-const Productarea = (props) => {
+const ProductArea = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.product_area}>
@@ -44,6 +44,6 @@ const Productarea = (props) => {
 	);
 };
 
-Productarea.propTypes = {};
+ProductArea.propTypes = {};
 
-export default Productarea;
+export default ProductArea;

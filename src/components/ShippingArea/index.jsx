@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import shipper from '../../constants/shipper';
 
-const Shippingarea = (props) => {
+const ShippingArea = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.shipping_area}>
@@ -29,6 +29,6 @@ const Shippingarea = (props) => {
 	);
 };
 
-Shippingarea.propTypes = {};
+ShippingArea.propTypes = {};
 
-export default Shippingarea;
+export default ShippingArea;

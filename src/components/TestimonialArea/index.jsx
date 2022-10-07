@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import styles from './styles.module.css';
-import Brandarea from '../Brandarea';
+import BrandArea from '../BrandArea';
 
-const Testimonialarea = (props) => {
+const TestimonialArea = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.main_area}>
@@ -32,16 +32,16 @@ const Testimonialarea = (props) => {
 							src="https://htmldemo.net/lukani/lukani/assets/img/about/testimonial2.png"
 						/>
 						<Typography component="p" className={styles.testimonial_author}>
-							Amber Laha
+							Amber Lama
 						</Typography>
 					</Box>
 				</Box>
-				<Brandarea />
+				<BrandArea />
 			</Box>
 		</div>
 	);
 };
 
-Testimonialarea.propTypes = {};
+TestimonialArea.propTypes = {};
 
-export default Testimonialarea;
+export default TestimonialArea;

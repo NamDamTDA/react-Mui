@@ -1,6 +1,6 @@
 const products = [
 	{
-		name: `placerat vestibulum`,
+		name: `placenta vestibulum`,
 		price: '$68.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product3.jpg',
@@ -8,7 +8,7 @@ const products = [
 		rate: 1,
 	},
 	{
-		name: `sapien libero`,
+		name: `sapient libero`,
 		price: '$69.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product1.jpg',
@@ -16,7 +16,7 @@ const products = [
 		rate: 2,
 	},
 	{
-		name: `adipiscing curcus`,
+		name: `adipiscing cercus`,
 		price: '$68.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product2.jpg',
@@ -24,7 +24,7 @@ const products = [
 		rate: 3,
 	},
 	{
-		name: `fringilla augue`,
+		name: `fringilla augur`,
 		price: '$68.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product4.jpg',
@@ -32,7 +32,7 @@ const products = [
 		rate: 4,
 	},
 	{
-		name: `massa porror`,
+		name: `massa poirot`,
 		price: '$68.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product5.jpg',
@@ -40,7 +40,7 @@ const products = [
 		rate: 5,
 	},
 	{
-		name: `Donec eu cook`,
+		name: `Donees eu cook`,
 		price: '$68.00',
 		oldPrice: '$92.00',
 		image: 'https://htmldemo.net/lukani/lukani/assets/img/product/product6.jpg',

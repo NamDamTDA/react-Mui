@@ -3,9 +3,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
 import './App.css';
 import NotFound from './components/NotFound';
-import AdminLayout from './pages/AdminLayout';
+import AdminLayout from './layouts/AdminLayout';
 import HomePage from './pages/Client/HomePage/HomePage';
-import WebsiteLayout from './pages/WebsiteLayout';
+import WebsiteLayout from './layouts/WebsiteLayout';
 
 const theme = createTheme({
 	typography: {

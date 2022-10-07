@@ -33,7 +33,7 @@ const slider = [
 	// {
 	// 	content: 'AMAZING FROM Lukani',
 	// 	image: 'https://htmldemo.net/lukani/lukani/assets/img/slider/slider6.jpg',
-	// 	title: 'outdoor the best choise',
+	// 	title: 'outdoor the best choose',
 	// 	desc: 'Discount 20% Off For Lukani Members',
 	// 	button: (
 	// 		<Typography component="a" href="#" target="_blank" rel="noreferrer" variant="button">

@@ -3,7 +3,7 @@ import { Box, Button, Typography } from '@mui/material';
 import { MailOutlineOutlined } from '@mui/icons-material';
 import styles from './styles.module.css';
 
-const Newsletter = (props) => {
+const NewsLetter = (props) => {
 	return (
 		<div>
 			<Box component="section" className={styles.newsletter_area}>
@@ -31,6 +31,6 @@ const Newsletter = (props) => {
 	);
 };
 
-Newsletter.propTypes = {};
+NewsLetter.propTypes = {};
 
-export default Newsletter;
+export default NewsLetter;
