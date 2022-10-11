@@ -1,0 +1,33 @@
+.shipping_area {
+  padding: 99px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single_shipping {
+  display: flex;
+  align-items: center;
+
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+.shipping_icone {
+  margin-right: 18px;
+}
+.shipping_content h3 {
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: capitalize;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.shipping_content p {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+}

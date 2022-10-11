@@ -1,0 +1,85 @@
+.newsletter_area {
+  padding: 92px 0 100px;
+}
+.section_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section_title h2 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  display: inline-block;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  position: relative;
+  font-family: "Lora", serif;
+  padding-bottom: 22px;
+}
+.section_title h2::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 2px;
+  background: #222222;
+  bottom: 0;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.section_title h2 span {
+  color: #79a206;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  display: inline-block;
+  margin: 0 13px;
+
+  text-transform: capitalize;
+  position: relative;
+  font-family: "Lora", serif;
+  padding-bottom: 0;
+}
+
+.newsletter_container {
+  padding-top: 16px;
+}
+.subscribe_form {
+  position: relative;
+  border-bottom: 1px solid #373737;
+  width: 630px;
+  margin: 0 auto;
+}
+.email_icon {
+  position: absolute;
+  font-size: 25px;
+  top: 50%;
+  left: 0;
+  transform: translatey(-50%);
+}
+.subscribe_form input {
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0 108px 0 45px;
+  height: 48px;
+  font-size: 15px;
+  color: #222;
+}
+.subscribe_form button {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  height: 100%;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #222;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0;
+  background: inherit;
+}
+.subscribe_form button:hover {
+  color: #79a206;
+}

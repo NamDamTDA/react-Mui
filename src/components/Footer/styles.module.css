@@ -1,0 +1,128 @@
+.widgets_title {
+  font-size: 14px !important;
+  line-height: 16px !important;
+  margin-bottom: 31px !important;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  position: relative;
+  text-align: left;
+  padding-left: 40px;
+}
+.widgets_title::before {
+  content: "";
+  width: 35px;
+  height: 2px;
+  background: #222222;
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+}
+.footer_widgets {
+  margin: auto;
+  margin-top: 100px;
+}
+
+.footer_top {
+  padding: 99px 0 89px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  font-family: "Rubik", sans-serif !important;
+}
+.widgets_container {
+  margin-right: 10% !important;
+}
+.widgets_container h5 {
+  font-size: 24px;
+  line-height: 16px;
+  text-align: center;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.footer_logo {
+  margin-bottom: 30px;
+  margin-left: 43px;
+  text-align: center;
+  width: 150px;
+}
+
+.contact_us p {
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+.contact_us p b {
+  font-weight: 500;
+}
+.contact_us p:last-child {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+.footer_menu ul {
+  list-style: outside none none;
+}
+
+.footer_menu ul li {
+  padding-bottom: 2px;
+}
+.footer_menu ul li:last-child {
+  padding-bottom: 0;
+}
+.footer_menu ul li a {
+  display: block;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #222222;
+}
+.footer_menu ul li a:hover {
+  color: #79a206;
+  text-decoration: none;
+}
+.footer_social {
+  margin-top: 23px;
+  text-align: center;
+}
+.footer_social ul {
+  padding: 0;
+}
+.footer_social ul li {
+  display: inline-block;
+  margin-right: 8px;
+}
+.footer_social ul li:last-child {
+  margin-right: 0;
+}
+
+.footer_social ul li a {
+  width: 42px;
+  height: 42px;
+  line-height: 44px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  color: #222222;
+}
+.footer_social ul li a:hover {
+  color: white;
+  background: #79a206;
+}
+
+.footer_payment {
+  text-align: right;
+}
+
+.footer_bottom {
+  padding: 29px 0;
+  text-align: center !important;
+  text-transform: capitalize;
+  color: #222222;
+}
+.footer_bottom a {
+  color: #79a206;
+}
