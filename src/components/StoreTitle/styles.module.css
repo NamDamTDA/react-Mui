@@ -1,5 +1,6 @@
 .lstore_title {
-	background: url(https://htmldemo.net/lukani/lukani/assets/img/bg/bkg_top_vogue2.png) top center no-repeat;
+	background: url(https://htmldemo.net/lukani/lukani/assets/img/bg/bkg_top_vogue2.png)
+		top center no-repeat;
 	padding: 65px 0;
 	margin-top: 100px;
 	margin-bottom: 0;
@@ -10,33 +11,33 @@
 	padding: 0 299px;
 	margin-top: 32px;
 }
-.section_title{
-    text-align: center;
+.section_title {
+	text-align: center;
 }
 .section_title h2 {
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 400;
-    display: inline-block;
-    margin-bottom: 0;
-    text-transform: capitalize;
-    position: relative;
-    font-family: 'Lora', serif !important;
-    padding-bottom: 22px;
+	font-size: 40px;
+	line-height: 48px;
+	font-weight: 400;
+	display: inline-block;
+	margin-bottom: 0;
+	text-transform: capitalize;
+	position: relative;
+	font-family: 'Lora', serif !important;
+	padding-bottom: 22px;
 }
 .section_title h2::before {
-    position: absolute;
-    content: "";
-    width: 80px;
-    height: 2px;
-    background: #222222;
-    bottom: 0;
-    left: 50%;
-    transform: translatex(-50%);
+	position: absolute;
+	content: '';
+	width: 80px;
+	height: 2px;
+	background: #222222;
+	bottom: 0;
+	left: 50%;
+	transform: translatex(-50%);
 }
 .lstore_title p {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 0 299px;
-    margin-top: 32px;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0 299px;
+	margin-top: 32px;
 }

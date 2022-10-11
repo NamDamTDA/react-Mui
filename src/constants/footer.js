@@ -94,4 +94,5 @@ const content = {
 		</Typography>
 	),
 };
+
 export default content;

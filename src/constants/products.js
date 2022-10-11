@@ -1,5 +1,6 @@
 const products = [
 	{
+		index: 0,
 		name: `placenta vestibulum`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -8,6 +9,7 @@ const products = [
 		rate: 1,
 	},
 	{
+		index: 1,
 		name: `sapient libero`,
 		price: '$69.00',
 		oldPrice: '$92.00',
@@ -16,6 +18,7 @@ const products = [
 		rate: 2,
 	},
 	{
+		index: 2,
 		name: `adipiscing cercus`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -24,6 +27,7 @@ const products = [
 		rate: 3,
 	},
 	{
+		index: 3,
 		name: `fringilla augur`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -32,6 +36,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 4,
 		name: `massa poirot`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -40,6 +45,7 @@ const products = [
 		rate: 5,
 	},
 	{
+		index: 5,
 		name: `Donees eu cook`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -48,6 +54,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 6,
 		name: `placerat vestibulum`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -56,6 +63,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 7,
 		name: `sapien libero`,
 		price: '$69.00',
 		oldPrice: '$92.00',
@@ -64,6 +72,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 8,
 		name: `adipiscing curcus`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -72,6 +81,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 9,
 		name: `fringilla augue`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -80,6 +90,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 10,
 		name: `massa porror`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -88,6 +99,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 11,
 		name: `Donec eu cook`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -96,6 +108,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 12,
 		name: `placerat vestibulum`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -104,6 +117,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 13,
 		name: `sapien libero`,
 		price: '$69.00',
 		oldPrice: '$92.00',
@@ -112,6 +126,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 14,
 		name: `adipiscing curcus`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -120,6 +135,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 15,
 		name: `fringilla augue`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -128,6 +144,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 16,
 		name: `massa porror`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -136,6 +153,7 @@ const products = [
 		rate: 4,
 	},
 	{
+		index: 17,
 		name: `Donec eu cook`,
 		price: '$68.00',
 		oldPrice: '$92.00',
@@ -144,4 +162,5 @@ const products = [
 		rate: 4,
 	},
 ];
+
 export default products;

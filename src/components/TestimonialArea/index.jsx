@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import BrandArea from '../BrandArea';
 
-const TestimonialArea = (props) => {
+const TestimonialArea = () => {
 	return (
 		<div>
 			<Box component="section" className={styles.main_area}>
@@ -41,7 +41,5 @@ const TestimonialArea = (props) => {
 		</div>
 	);
 };
-
-TestimonialArea.propTypes = {};
 
 export default TestimonialArea;
