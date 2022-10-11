@@ -1,56 +1,56 @@
 .header_transparent {
-	position: absolute;
-	top: 40px;
-	left: 0;
-	width: 100%;
-	z-index: 9;
-	padding: 0 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  padding: 0 40px;
 }
 
 .sticky_header {
-	position: fixed;
-	z-index: 99;
-	width: 100%;
-	top: 0;
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.11);
-	border-bottom: 0;
-	display: block;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.11);
+  border-bottom: 0;
+  display: block;
 }
 
 .main_menu {
-	flex: 0 0 auto;
-	width: 41.66666667%;
-	margin: 0px;
+  flex: 0 0 auto;
+  width: 41.66666667%;
+  margin: 0px;
 }
 .menu_item {
-	margin-right: 7px;
+  margin-right: 7px;
 }
 .menu_item button {
-	color: #222 !important;
+  color: #222 !important;
 }
 .logo {
-	max-width: 150px;
-	margin-left: 0px;
-	transition: all 0.3s ease 0s;
-	vertical-align: middle;
+  max-width: 150px;
+  margin-left: 0px;
+  transition: all 0.3s ease 0s;
+  vertical-align: middle;
 }
 .header_right {
-	margin-left: 300px;
-	text-align: right;
+  margin-left: 300px;
+  text-align: right;
 }
 .header_right a {
-	font-size: 24px !important;
-	margin-left: 20px;
-	color: #222;
-	font-weight: 500;
-	padding: 0px;
-	display: inline;
-	margin-top: 46px;
+  font-size: 24px !important;
+  margin-left: 20px;
+  color: #222;
+  font-weight: 500;
+  padding: 0px;
+  display: inline;
+  margin-top: 46px;
 }
 .header_right a:hover {
-	color: #79a206;
+  color: #79a206;
 }
 .header_account_list {
-	margin-left: 27px;
+  margin-left: 27px;
 }

@@ -1,107 +1,106 @@
-
 .slider_section {
-	background-image: url(https://htmldemo.net/lukani/lukani/assets/img/slider/slider4.jpg);
-	height: 960px;
-	position: relative;
+  background-image: url(https://htmldemo.net/lukani/lukani/assets/img/slider/slider4.jpg);
+  height: 960px;
+  position: relative;
 }
 .single_slider {
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center center;
-	background-size: cover;
-	height: 738px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  height: 738px;
 }
 .owl_dots {
-	position: absolute;
-	bottom: 50px;
-	left: 50%;
-	transform: translatex(-50%);
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translatex(-50%);
 }
 .owl_dot {
-	width: 16px;
-	height: 16px;
-	border: 2px solid white;
-	border-radius: 50%;
-	display: inline-block;
-	margin: 0 3px;
-	transition: 0.3s;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 3px;
+  transition: 0.3s;
 }
 .owl_dot.active {
-	background: white;
+  background: white;
 }
 .owl_dot:hover {
-	background: white;
+  background: white;
 }
 .slider_area:hover .owl_nav div {
-	opacity: 1;
-	visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 .owl_nav div {
-	position: absolute;
-	display: block;
-	top: 49%;
+  position: absolute;
+  display: block;
+  top: 49%;
 
-	font-size: 50px;
-	cursor: pointer;
+  font-size: 50px;
+  cursor: pointer;
 }
 .owl_nav div:hover {
-	color: #79a206;
+  color: #79a206;
 }
 .owl_next {
-	right: 50px;
-	left: auto;
+  right: 50px;
+  left: auto;
 }
 .owl_prev {
-	left: 50px;
-	right: auto;
+  left: 50px;
+  right: auto;
 }
 .owl_item {
-	width: 100%;
-	padding-top: 14rem;
-	padding-left: 14rem;
-	margin-right: auto;
-	margin-left: auto;
+  width: 100%;
+  padding-top: 14rem;
+  padding-left: 14rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 .slider_content a {
-	font-size: 15px;
-	font-weight: 500;
-	padding: 0 45px;
-	display: inline-block;
-	text-transform: uppercase;
-	border-radius: 30px;
-	height: 65px;
-	line-height: 65px;
-	background: inherit;
-	margin-top: 46px;
-	color: #fff;
-	background: #222222;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0 45px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 30px;
+  height: 65px;
+  line-height: 65px;
+  background: inherit;
+  margin-top: 46px;
+  color: #fff;
+  background: #222222;
 }
 .slider_content a:hover {
-	background: #79a206;
+  background: #79a206;
 }
 .slider_content h1 {
-	font-size: 90px;
-	line-height: 90px;
-	font-weight: 500;
-	margin-bottom: 33px;
-	text-transform: uppercase;
-	letter-spacing: -2px;
+  font-size: 90px;
+  line-height: 90px;
+  font-weight: 500;
+  margin-bottom: 33px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
 }
 .desc {
-	font-size: 24px;
-	line-height: 24px;
-	margin-bottom: 10px;
-	border: 0 !important;
-	display: inline !important;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+  border: 0 !important;
+  display: inline !important;
 }
 .slider_content span {
-	color: #222222;
-	font-size: 16px;
-	line-height: 16px;
-	font-weight: 500;
-	width: 120px;
-	display: inline-block;
-	margin-bottom: 75px;
-	border-left: 2px solid #000000;
-	padding-left: 8px;
+  color: #222222;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  width: 120px;
+  display: inline-block;
+  margin-bottom: 75px;
+  border-left: 2px solid #000000;
+  padding-left: 8px;
 }
