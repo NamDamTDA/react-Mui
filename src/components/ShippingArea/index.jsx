@@ -3,13 +3,13 @@ import { Box, Grid, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import shipper from '../../constants/shipper';
 
-const ShippingArea = (props) => {
+const ShippingArea = () => {
 	return (
 		<div>
 			<Box component="section" className={styles.shipping_area}>
 				<Box className={styles.row}>
-					{shipper.map(({ title, desc, desc2, icon, items }) => (
-						<Grid key={title} className={styles.single_shipping}>
+					{shipper.map(({ title, desc, desc2, icon, index }) => (
+						<Grid key={index} className={styles.single_shipping}>
 							<Box
 								className={styles.shipping_icone}
 								component="img"
@@ -28,7 +28,5 @@ const ShippingArea = (props) => {
 		</div>
 	);
 };
-
-ShippingArea.propTypes = {};
 
 export default ShippingArea;

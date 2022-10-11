@@ -3,13 +3,17 @@ import { Box, Grid, Rating, Typography } from '@mui/material';
 import styles from './styles.module.css';
 import products from '../../constants/products';
 
-const ProductArea = () => {
+const RelatedProduct = () => {
+	const newList = products.slice(0, 4);
 	return (
 		<div>
 			<Box component="section" className={styles.product_area}>
+				<Box className={styles.section_title}>
+					<Typography component="h2">Related Products</Typography>
+				</Box>
 				<Box className={styles.product_container}>
 					<Box className={`${styles.row}`}>
-						{products.map(({ name, price, oldPrice, image, sale, rate, index }) => (
+						{newList.map(({ name, price, oldPrice, image, sale, rate, index }) => (
 							<Grid key={index} className={styles.product_item}>
 								<Box className={styles.product_thumb}>
 									<Typography component="a" href="#" target="_blank">
@@ -42,4 +46,4 @@ const ProductArea = () => {
 	);
 };
 
-export default ProductArea;
+export default RelatedProduct;

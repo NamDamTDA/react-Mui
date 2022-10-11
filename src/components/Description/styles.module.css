@@ -1,0 +1,46 @@
+.product_bottom {
+	padding: 20px 30px 27px;
+	border: 1px solid #e1e1e1;
+	margin: 190px auto;
+    max-width: 1200px;
+}
+.product_bottom h4 {
+	text-transform: capitalize;
+	font-size: 20px;
+	color: #555;
+	font-weight: 500;
+	margin-right: 35px;
+	line-height: 26px;
+	border-bottom: 1px solid #e1e1e1;
+	padding-bottom: 15px;
+	margin-bottom: 29px;
+}
+.desc_content p {
+	line-height: 28px;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+.desc_content {
+	margin-bottom: 50px;
+}
+.reviews_wrapper h2 {
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.reviews_container {
+	padding: 30px 20px;
+	margin: 10px;
+    margin-bottom: 30px;
+}
+.reviews_times{
+    font-style: italic;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.reviews_main{
+    font-size: 14px;
+}
+.reviews_user{
+    margin: 10px 0;
+}

@@ -24,8 +24,8 @@ const Footer = () => {
 							</Box>
 							<Box className={styles.footer_social}>
 								<Box component="ul">
-									{socials.map(({ icon, link }, key) => (
-										<Box component="li" key={link}>
+									{socials.map(({ icon, link }, index) => (
+										<Box component="li" key={index}>
 											<Typography component="a" href={link} variant="h5">
 												{icon}
 											</Typography>
@@ -34,8 +34,8 @@ const Footer = () => {
 								</Box>
 							</Box>
 						</Grid>
-						{menus.map(({ name: title, items }) => (
-							<Grid key={title} item xs={6} md={2} className={styles.widget_menu}>
+						{menus.map(({ name: title, items }, index) => (
+							<Grid key={index} item xs={6} md={2} className={styles.widget_menu}>
 								<Typography className={styles.widgets_title} variant="h3">
 									{title}
 								</Typography>
