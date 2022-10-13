@@ -11,6 +11,7 @@ import ProductDetail from "../pages/Client/ProductDetail";
 import Path from "./contants";
 import SignUp from "../pages/Client/SignUp";
 import AboutPage from "../pages/Client/AboutPage";
+import ContactUs from "../pages/Client/ContactUs";
 
 const MainRoutes = () => {
   return (
@@ -18,7 +19,7 @@ const MainRoutes = () => {
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
         <Route path={Path.about} element={<AboutPage />} />
-        <Route path={Path.contact} element={<h1>ContactUs</h1>} />
+        <Route path={Path.contact} element={<ContactUs />} />
         <Route path={Path.productList}>
           <Route index element={<ListProduct />} />
           <Route path={Path.productDetail} element={<ProductDetail />} />
