@@ -1,0 +1,57 @@
+.login_area {
+  background-image: url(https://htmldemo.net/lukani/lukani/assets/img/slider/slider7.jpg);
+  height: 960px;
+  position: relative;
+}
+.login_main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.3);
+  padding: 40px;
+}
+.account_form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 50px 0 auto;
+  justify-content: space-between;
+  min-height: 350px;
+}
+.login_main h3 {
+  font-size: 38px;
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.account_form input {
+  width: 400px;
+}
+.account_form button {
+  background: #79a206;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 3px 14px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 0;
+  width: 100%;
+}
+.account_form button:hover {
+  background: #222222;
+}
+.account_form a {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px 0;
+  color: #222222;
+  text-decoration: none;
+  cursor: pointer;
+}
+.account_form a:hover {
+  color: #79a206;
+}

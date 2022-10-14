@@ -3,24 +3,30 @@ import { Navigate, Route, Routes } from "react-router";
 import NotFound from "../components/NotFound";
 import AdminLayout from "../layouts/AdminLayout";
 import WebsiteLayout from "../layouts/WebsiteLayout";
+import CartPage from "../pages/Client/Cart";
 import HomePage from "../pages/Client/HomePage/HomePage";
 import ListProduct from "../pages/Client/ListProduct";
+import Login from "../pages/Client/SignIn";
 import ProductDetail from "../pages/Client/ProductDetail";
 import Path from "./contants";
+import SignUp from "../pages/Client/SignUp";
+import AboutPage from "../pages/Client/AboutPage";
+import ContactUs from "../pages/Client/ContactUs";
 
 const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
-        <Route path={Path.about} element={<h1>About Page</h1>} />
-        <Route path={Path.contact} element={<h1>Contact Page</h1>} />
+        <Route path={Path.about} element={<AboutPage />} />
+        <Route path={Path.contact} element={<ContactUs />} />
         <Route path={Path.productList}>
           <Route index element={<ListProduct />} />
           <Route path={Path.productDetail} element={<ProductDetail />} />
         </Route>
-        <Route path={Path.login} element={<h1>Login</h1>} />
-        <Route path={Path.signUp} element={<h1>Signup</h1>} />
+        <Route path={Path.cart} element={<CartPage />} />
+        <Route path={Path.login} element={<Login />} />
+        <Route path={Path.signUp} element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 
