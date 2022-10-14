@@ -11,11 +11,7 @@ const AboutPage = () => {
       <Box className={styles.about_page_area}>
         <Box className={styles.about_section}>
           <Box className={styles.about_thumb}>
-            <Box
-              component="img"
-              alt="image"
-              src="https://htmldemo.net/lukani/lukani/assets/img/about/about1.jpg"
-            />
+            <Box component="img" alt="image" src={link.aboutMain}  />
           </Box>
           <Box className={styles.about_content}>
             <Typography component="h1">
@@ -30,11 +26,7 @@ const AboutPage = () => {
             </Typography>
           </Box>
           <Box className={styles.about_signature}>
-            <Box
-              component="img"
-              alt="image"
-              src="https://htmldemo.net/lukani/lukani/assets/img/about/about-us-signature.png"
-            />
+            <Box component="img" alt="image" src={link.aboutUsSignature} />
           </Box>
         </Box>
         <Box component="section" className={styles.choseus_area}>
@@ -55,6 +47,11 @@ const AboutPage = () => {
       </Box>
     </div>
   );
+};
+
+const link = {
+  aboutMain: "https://htmldemo.net/lukani/lukani/assets/img/about/about1.jpg",
+  aboutUsSignature: "https://htmldemo.net/lukani/lukani/assets/img/about/about-us-signature.png",
 };
 
 export default AboutPage;
