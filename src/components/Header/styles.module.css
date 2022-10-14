@@ -36,7 +36,7 @@
   vertical-align: middle;
 }
 .header_right {
-  margin-left: 300px;
+  margin-left: 270px;
   text-align: right;
 }
 .header_right a {
@@ -53,4 +53,8 @@
 }
 .header_account_list {
   margin-left: 27px;
+}
+.header_cart{
+  margin-left: 10px !important;
+  color: #222 !important;
 }

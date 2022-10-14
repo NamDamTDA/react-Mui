@@ -1,4 +1,5 @@
 import React from "react";
+import CartDrawer from "../../../components/CartDrawer";
 import NewsLetter from "../../../components/NewsLetter";
 import Banner from "../../../components/Slider";
 import StoreTitle from "../../../components/StoreTitle";
@@ -11,6 +12,7 @@ const HomePage = () => {
       <StoreTitle />
       <TestimonialArea />
       <NewsLetter />
+      <CartDrawer/>
     </div>
   );
 };

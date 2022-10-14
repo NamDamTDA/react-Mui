@@ -1,8 +1,20 @@
 import React from "react";
-import { Box, Button, Container, Toolbar, Tooltip, Typography } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import Face3Icon from "@mui/icons-material/Face3";
-import { FavoriteBorder, LocalMallOutlined, SearchOutlined } from "@mui/icons-material";
+import { FavoriteBorder, SearchOutlined, ShoppingCartSharp } from "@mui/icons-material";
 import styles from "./styles.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { cartTotalSelector } from "../../features/CartSlice/selectors";
+import { toggle } from "../../features/CartSlice/uiSlice";
 
 const pages = ["Products", "About", "Blog", "Contact"];
 const icons = [
@@ -18,13 +30,16 @@ const icons = [
     title: "Favorite",
     icon: <FavoriteBorder fontSize="large" />,
   },
-  {
-    title: "Cart",
-    icon: <LocalMallOutlined fontSize="large" />,
-  },
+  // {
+  //   title: "Cart",
+  //   icon: <LocalMallOutlined fontSize="large" />,
+  // },
 ];
 
 const Header = () => {
+  const total = useSelector(cartTotalSelector);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Box component="header" className={`${styles.header_transparent} ${styles.sticky_header}`}>
@@ -51,6 +66,17 @@ const Header = () => {
                   </Typography>
                 </Tooltip>
               ))}
+              <IconButton
+                className={styles.header_cart}
+                aria-label="cart"
+                onClick={() => {
+                  dispatch(toggle());
+                }}
+              >
+                <Badge badgeContent={total} color="secondary">
+                  <ShoppingCartSharp fontSize="large" />
+                </Badge>
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>
