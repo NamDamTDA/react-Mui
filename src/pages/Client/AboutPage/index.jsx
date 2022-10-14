@@ -4,14 +4,16 @@ import styles from "./styles.module.css";
 import chosen from "../../../constants/choseus";
 import TestimonialArea from "../../../components/TestimonialArea";
 import FAQuestion from "../../../components/FAQ";
+import ScrollButton from "../../../components/ScrollButton";
 
 const AboutPage = () => {
   return (
     <div>
+      <ScrollButton showBelow={300} />
       <Box className={styles.about_page_area}>
         <Box className={styles.about_section}>
           <Box className={styles.about_thumb}>
-            <Box component="img" alt="image" src={link.aboutMain}  />
+            <Box component="img" alt="image" src={link.aboutMain} />
           </Box>
           <Box className={styles.about_content}>
             <Typography component="h1">

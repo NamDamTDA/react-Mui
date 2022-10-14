@@ -19,6 +19,7 @@ import BrandArea from "../../../components/BrandArea";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
 import { deleteItem } from "../../../features/CartSlice/cartSlice";
+import ScrollButton from "../../../components/ScrollButton";
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const CartPage = () => {
 
   return (
     <div>
+      <ScrollButton showBelow={300} />
       <Box className={styles.cart_page_area}>
         <TableContainer component={Paper} elevation={3} className={styles.table_responsive}>
           <Table aria-label="spanning table">
