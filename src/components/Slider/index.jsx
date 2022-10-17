@@ -7,7 +7,7 @@ import Carousel from "react-material-ui-carousel";
 const Banner = () => {
   const defaultSettings = {
     autoPlay: true,
-    animation: "fade",
+    animation: "slide",
     indicators: true,
     duration: 500,
     navButtonsAlwaysVisible: false,
