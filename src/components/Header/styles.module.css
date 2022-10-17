@@ -23,12 +23,12 @@
   width: 41.66666667%;
   margin: 0px;
 }
-.menu_item {
-  margin-right: 7px;
+.main_menu a{
+  margin-right: 17px;
+  color: #79a206;
+  font-weight: 500;
 }
-.menu_item button {
-  color: #222 !important;
-}
+
 .logo {
   max-width: 150px;
   margin-left: 0px;
@@ -36,7 +36,7 @@
   vertical-align: middle;
 }
 .header_right {
-  margin-left: 300px;
+  margin-left: 270px;
   text-align: right;
 }
 .header_right a {
@@ -53,4 +53,8 @@
 }
 .header_account_list {
   margin-left: 27px;
+}
+.header_cart{
+  margin-left: 10px !important;
+  color: #222 !important;
 }

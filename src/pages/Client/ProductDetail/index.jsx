@@ -25,6 +25,7 @@ import React from "react";
 import BrandArea from "../../../components/BrandArea";
 import Description from "../../../components/Description";
 import RelatedProduct from "../../../components/RelatedProduct";
+import ScrollButton from "../../../components/ScrollButton";
 import styles from "./styles.module.css";
 
 const ProductDetail = () => {
@@ -32,6 +33,7 @@ const ProductDetail = () => {
 
   return (
     <div>
+      <ScrollButton showBelow={300} />
       <Box component="section" className={styles.product_detail_area}>
         <Box className={styles.section_title}>
           <Typography component="h4">Detail Product Page</Typography>

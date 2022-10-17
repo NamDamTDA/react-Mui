@@ -15,12 +15,20 @@ import {
   Typography,
 } from "@mui/material";
 import { DeleteOutline } from "@mui/icons-material";
-import products from "../../../constants/products";
 import BrandArea from "../../../components/BrandArea";
+import { useDispatch, useSelector } from "react-redux";
+import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
+import { deleteItem } from "../../../features/CartSlice/cartSlice";
+import ScrollButton from "../../../components/ScrollButton";
 
 const CartPage = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const totalPrice = useSelector(cartTotalPriceSelector);
+
   return (
     <div>
+      <ScrollButton showBelow={300} />
       <Box className={styles.cart_page_area}>
         <TableContainer component={Paper} elevation={3} className={styles.table_responsive}>
           <Table aria-label="spanning table">
@@ -35,32 +43,30 @@ const CartPage = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {products.map(
-                ({ name, price, image, rate, index }) =>
-                  index < 4 && (
-                    <TableRow key={index}>
-                      <TableCell align="center">
-                        <IconButton>
-                          <DeleteOutline />
-                        </IconButton>
-                      </TableCell>
-                      <TableCell align="center">
-                        <img src={image} alt="img" width="100px" />
-                      </TableCell>
-                      <TableCell align="center">{name}</TableCell>
-                      <TableCell align="center" className={styles.product_price}>
-                        {price}
-                      </TableCell>
-                      <TableCell align="center">{rate}</TableCell>
-                      <TableCell align="center">$700</TableCell>
-                    </TableRow>
-                  )
-              )}
+              {cart.map((cartItem) => (
+                <TableRow key={cartItem.id}>
+                  <TableCell align="center">
+                    <IconButton
+                      onClick={() => {
+                        dispatch(deleteItem(cartItem.id));
+                      }}
+                    >
+                      <DeleteOutline />
+                    </IconButton>
+                  </TableCell>
+                  <TableCell align="center">
+                    <img src={cartItem.image} alt="img" width="100px" />
+                  </TableCell>
+                  <TableCell align="center">{cartItem.name}</TableCell>
+                  <TableCell align="center" className={styles.product_price}>
+                    {cartItem.price}$
+                  </TableCell>
+                  <TableCell align="center">{cartItem.quantity}</TableCell>
+                  <TableCell align="center">{cartItem.quantity * cartItem.price}$</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
-          <Box className={styles.cart_submit}>
-            <Button>update cart</Button>
-          </Box>
         </TableContainer>
         <Box className={styles.coupon_area}>
           <Box component={Paper} elevation={3} className={styles.coupon_left}>
@@ -77,22 +83,22 @@ const CartPage = () => {
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Subtotal</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  $215.00
+                  {totalPrice}$
                 </Typography>
               </Box>
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Shipping</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  $15.00
+                  15$
                 </Typography>
               </Box>
               <Typography component="a" href="#" target="_blank">
-                Caculate Shipping
+                Calculate Shipping
               </Typography>
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Total</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  $230.00
+                  {totalPrice + 15}$
                 </Typography>
               </Box>
               <Box className={styles.checkout_btn}>

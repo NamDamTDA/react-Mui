@@ -12,10 +12,12 @@ import {
 import styles from "./styles.module.css";
 import BrandArea from "../../../components/BrandArea";
 import { BusinessOutlined, EmailOutlined, LocalPhoneOutlined } from "@mui/icons-material";
+import ScrollButton from "../../../components/ScrollButton";
 
 const ContactUs = () => {
   return (
     <div>
+      <ScrollButton showBelow={300} />
       <Box className={styles.contact_page_area}>
         <Box className={styles.contact_section}>
           <Box className={styles.section_title}>
