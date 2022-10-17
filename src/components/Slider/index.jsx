@@ -16,16 +16,18 @@ const Banner = () => {
     fullHeightHover: true,
     swipe: true,
   };
+
   return (
     <div>
       <Carousel className="BannerSlider" {...defaultSettings}>
-        {slider.map((item, key) => {
-          return <Project item={item} key={key} />;
-        })}
+        {slider.map((item, key) => (
+          <Project item={item} key={key} />
+        ))}
       </Carousel>
     </div>
   );
 };
+
 const Project = ({ item }) => {
   return (
     <Box
@@ -52,4 +54,5 @@ const Project = ({ item }) => {
     </Box>
   );
 };
+
 export default Banner;

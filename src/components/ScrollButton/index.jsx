@@ -13,6 +13,7 @@ const ScrollButton = (showBelow) => {
       setShow(false);
     }
   };
+
   const handleClick = () => {
     window[`scrollTo`]({ top: 0, behavior: `smooth` });
   };
@@ -20,9 +21,11 @@ const ScrollButton = (showBelow) => {
   useEffect(() => {
     if (showBelow) {
       window.addEventListener(`scroll`, handleScroll);
+      
       return () => window.removeEventListener(`scroll`, handleScroll);
     }
   });
+
   return (
     <>
       {show && (

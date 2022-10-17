@@ -2,7 +2,6 @@ import React from "react";
 import {
   Badge,
   Box,
-  Button,
   Container,
   IconButton,
   Toolbar,
@@ -15,8 +14,9 @@ import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalSelector } from "../../features/CartSlice/selectors";
 import { toggle } from "../../features/CartSlice/uiSlice";
+import { Link } from "react-router-dom";
+import Path from "../../routes/contants";
 
-const pages = ["Products", "About", "Blog", "Contact"];
 const icons = [
   {
     title: "Search",
@@ -30,10 +30,6 @@ const icons = [
     title: "Favorite",
     icon: <FavoriteBorder fontSize="large" />,
   },
-  // {
-  //   title: "Cart",
-  //   icon: <LocalMallOutlined fontSize="large" />,
-  // },
 ];
 
 const Header = () => {
@@ -46,11 +42,10 @@ const Header = () => {
         <Container className={styles.container}>
           <Toolbar disableGutters className={styles.row}>
             <Box className={styles.main_menu}>
-              {pages.map((page) => (
-                <Button key={page} className={styles.menu_item} color="success">
-                  {page}
-                </Button>
-              ))}
+              <Link to={Path.home}>Home</Link>
+              <Link to={Path.productList}>Products</Link>
+              <Link to={Path.about}>About Us</Link>
+              <Link to={Path.contact}>Contact Us</Link>
             </Box>
             <Box
               className={styles.logo}

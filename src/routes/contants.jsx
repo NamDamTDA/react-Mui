@@ -1,4 +1,5 @@
 const Path = {
+  home: "",
   login: "login",
   signUp: "signup",
   about: "about",
