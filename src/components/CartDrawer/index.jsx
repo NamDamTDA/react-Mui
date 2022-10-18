@@ -68,7 +68,7 @@ const CartDrawer = () => {
           <Box>
             <CartTotal>Totals: {totalPrice}$</CartTotal>
             <CheckoutButton>
-              <Link to="/cart">Check Out</Link>
+              <Link to="/cart">View Cart</Link>
             </CheckoutButton>
           </Box>
         )}

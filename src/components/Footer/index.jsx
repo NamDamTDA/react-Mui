@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Container, Grid, Link, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import styles from "./styles.module.css";
 import content from "../../constants/footer";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { brand, socials, menus, copyright } = content;

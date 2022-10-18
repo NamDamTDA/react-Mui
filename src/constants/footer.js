@@ -1,32 +1,34 @@
 import { FacebookOutlined, GitHub, Instagram, Pinterest, Twitter } from "@mui/icons-material";
 import { Typography } from "@mui/material";
+import Path from "../routes/contants";
 
 const content = {
   brand: {
     name: "LUCANI COMPANY",
     description: "The next generation of design systems.",
     image: "https://htmldemo.net/lukani/lukani/assets/img/logo/logo.png",
+    route: Path.home,
   },
   socials: [
     {
       icon: <FacebookOutlined />,
-      link: "#",
+      link: "https://www.facebook.com/dam.nam.bb/",
     },
     {
       icon: <Twitter />,
-      link: "#",
+      link: "https://github.com/NamDamTDA",
     },
     {
       icon: <Instagram />,
-      link: "#",
+      link: "https://www.facebook.com/dam.nam.bb/",
     },
     {
       icon: <Pinterest />,
-      link: "#",
+      link: "https://www.facebook.com/dam.nam.bb/",
     },
     {
       icon: <GitHub />,
-      link: "#",
+      link: "https://github.com/NamDamTDA",
     },
   ],
   menus: [
@@ -42,11 +44,11 @@ const content = {
     {
       name: "INFORMATION",
       items: [
-        { name: "About Us", href: "#" },
-        { name: "Checkout", href: "#" },
-        { name: "Contact", href: "#" },
-        { name: "Frequently Questions", href: "#" },
-        { name: "Wishlist", href: "#" },
+        { name: "About Us", href: Path.about },
+        { name: "Checkout", href: Path.cart },
+        { name: "Contact", href: Path.contact },
+        { name: "Frequently Questions", href: Path.about },
+        { name: "Wishlist", href: Path.productList},
       ],
     },
     {
