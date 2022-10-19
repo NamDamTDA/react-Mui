@@ -16,7 +16,7 @@ import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 
 const ContactUs = () => {
   const contact = useRef("");
-  const [customer, setUser] = useState({
+  const [customer, setCustomer] = useState({
     name: "",
     email: "",
     subject: "",
@@ -25,7 +25,7 @@ const ContactUs = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setUser({
+    setCustomer({
       ...customer,
       [name]: value,
     });

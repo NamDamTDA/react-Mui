@@ -32,15 +32,13 @@ const SignUp = () => {
     });
   };
 
-  // const handleChange = (prop) => (event) => {
-  //   setUser({ ...user, [prop]: event.target.value });
-  // };
   const handleClickShowPassword = () => {
     setUser({
       ...user,
       showPassword: !user.showPassword,
     });
   };
+
   const handleSubmit = () => {};
 
   useEffect(() => {
@@ -53,6 +51,7 @@ const SignUp = () => {
         return true;
       });
     }
+    
     return () => {
       if (ValidatorForm.hasValidationRule("isPasswordMatch")) {
         ValidatorForm.removeValidationRule("isPasswordMatch");
