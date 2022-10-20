@@ -11,7 +11,6 @@ import LinkToProducts from "./linkToProducts";
 
 const ListActions = () => (
   <TopToolbar>
-    {/* <FilterButton /> */}
     <CreateButton />
     <ExportButton />
   </TopToolbar>
