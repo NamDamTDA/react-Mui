@@ -9,7 +9,7 @@ const Path = {
   productDetail: ":id",
   cart: "/cart",
   checkOut: "/checkout",
-  admin: "/admin",
+  admin: "/admin/*",
   productsManager: "products",
 };
 export default Path;

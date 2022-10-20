@@ -1,7 +1,6 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import NotFound from "../components/NotFound";
-import AdminLayout from "../layouts/AdminLayout";
 import WebsiteLayout from "../layouts/WebsiteLayout";
 import CartPage from "../pages/Client/Cart";
 import HomePage from "../pages/Client/HomePage/HomePage";
@@ -12,6 +11,7 @@ import Path from "./contants";
 import SignUp from "../pages/Client/SignUp";
 import AboutPage from "../pages/Client/AboutPage";
 import ContactUs from "../pages/Client/ContactUs";
+import StoreAdmin from "../pages/Backend";
 
 const MainRoutes = () => {
   return (
@@ -29,20 +29,7 @@ const MainRoutes = () => {
         <Route path={Path.signUp} element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-
-      <Route path={Path.admin} element={<AdminLayout />}>
-        <Route index element={<Navigate to={Path.productsManager} />} />
-        <Route path={Path.productsManager}>
-          <Route index element={<h1>ManagerProducts</h1>} />
-          <Route path="add" element={<h1>AddProductPage</h1>} />
-          <Route path="edit/:id" element={<h1>EditProduct</h1>} />
-        </Route>
-        <Route path="categories">
-          <Route index element={<h1>ManagerCategory</h1>} />
-          <Route path="add" element={<h1>AddProductPage</h1>} />
-          <Route path="edit/:id" element={<h1>EditProduct</h1>} />
-        </Route>
-      </Route>
+      <Route path="/admin/*" element={<StoreAdmin />} />
     </Routes>
   );
 };
