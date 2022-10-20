@@ -1,31 +1,30 @@
 import {
-    CreateButton,
-    Datagrid,
-    EditButton,
-    ExportButton,
-    List,
-    TextField,
-    TopToolbar,
-  } from "react-admin";
+  CreateButton,
+  Datagrid,
+  EditButton,
+  ExportButton,
+  List,
+  TextField,
+  TopToolbar,
+} from "react-admin";
 import LinkToProducts from "./linkToProducts";
-  
-  const ListActions = () => (
-    <TopToolbar>
-      {/* <FilterButton /> */}
-      <CreateButton />
-      <ExportButton />
-    </TopToolbar>
-  );
-  
-  const categoryList = () => (
-    <List actions={<ListActions />}>
-      <Datagrid>
-        <TextField source="name" />
-        <LinkToProducts />
-        <EditButton basePath="/categories" />
-      </Datagrid>
-    </List>
-  );
-  
-  export default categoryList;
-  
+
+const ListActions = () => (
+  <TopToolbar>
+    {/* <FilterButton /> */}
+    <CreateButton />
+    <ExportButton />
+  </TopToolbar>
+);
+
+const categoryList = () => (
+  <List actions={<ListActions />}>
+    <Datagrid>
+      <TextField source="name" />
+      <LinkToProducts />
+      <EditButton basePath="/categories" />
+    </Datagrid>
+  </List>
+);
+
+export default categoryList;

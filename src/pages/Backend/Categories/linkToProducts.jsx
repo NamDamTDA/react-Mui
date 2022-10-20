@@ -6,7 +6,9 @@ import { CardTravel } from "@mui/icons-material";
 
 const LinkToProducts = () => {
   const record = useRecordContext();
+
   if (!record) return null;
+
   return (
     <Button
       size="small"
