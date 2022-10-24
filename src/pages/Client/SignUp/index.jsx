@@ -11,16 +11,17 @@ import {
 } from "@mui/material";
 import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Path from "../../../routes/contants";
 
 const SignUp = () => {
   const signUp = useRef("");
   const [user, setUser] = useState({
-    fullName: "",
+    username: "",
     email: "",
     password: "",
     passwordRepeat: "",
+    checkBox: false,
     showPassword: false,
   });
 
@@ -39,7 +40,21 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = () => {};
+  const handleClickCheckBox = () => {
+    setUser({
+      ...user,
+      checkBox: !user.checkBox,
+    });
+  };
+
+  const navigate = useNavigate();
+
+  const handleRegister = ({ username, email, password, checkBox } = user) => {
+    console.log(user);
+    window.confirm(JSON.stringify(user));
+
+    navigate("/login");
+  };
 
   useEffect(() => {
     if (!ValidatorForm.hasValidationRule("isPasswordMatch")) {
@@ -51,7 +66,7 @@ const SignUp = () => {
         return true;
       });
     }
-    
+
     return () => {
       if (ValidatorForm.hasValidationRule("isPasswordMatch")) {
         ValidatorForm.removeValidationRule("isPasswordMatch");
@@ -62,18 +77,18 @@ const SignUp = () => {
   return (
     <div>
       <Box className={styles.signup_area}>
-        <ValidatorForm className={styles.signup_main} ref={signUp} onSubmit={handleSubmit}>
+        <ValidatorForm className={styles.signup_main} ref={signUp} onSubmit={handleRegister}>
           <Typography component="h3">SignUp</Typography>
           <Box className={styles.account_form}>
             <TextValidator
               autoFocus
               id="name"
-              name="fullName"
+              name="username"
               color="secondary"
               label="Full Name"
               variant="outlined"
               onChange={handleChange}
-              value={user.fullName}
+              value={user.username}
               validators={["required", "minStringLength:4", "maxStringLength:255"]}
               errorMessages={[
                 "This field is required",
@@ -130,7 +145,15 @@ const SignUp = () => {
               errorMessages={["Password mismatch", "This field is required"]}
             />
             <FormControlLabel
-              control={<Checkbox color="secondary" icon={<StarBorder />} checkedIcon={<Star />} />}
+              control={
+                <Checkbox
+                  color="secondary"
+                  icon={<StarBorder />}
+                  checkedIcon={<Star />}
+                  checked={user.checkBox ? true : false}
+                  onChange={handleClickCheckBox}
+                />
+              }
               label="Accept Our Rule"
             />
             <Button type="submit">SignUp</Button>

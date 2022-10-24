@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _products from "../../constants/products";
+import axios from "axios";
 
 const initialState = { loading: false, list: [] };
 
@@ -24,13 +24,10 @@ export const fetchProducts = () => async (dispatch) => {
   dispatch(save([]));
   dispatch(startFetch());
 
-  const products = await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(_products);
-    }, 2000);
-  });
+  const products = await axios.get("http://localhost:3001/products");
+  console.log(products.data);
 
-  dispatch(save(products));
+  dispatch(save(products.data));
 };
 
 const productsReducer = productsSlice.reducer;

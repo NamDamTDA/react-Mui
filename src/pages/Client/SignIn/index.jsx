@@ -11,14 +11,15 @@ import {
 } from "@mui/material";
 import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Path from "../../../routes/contants";
 
 const Login = () => {
-  const login = useRef("");
+  const loginForm = useRef("");
   const [user, setUser] = useState({
     email: "",
     password: "",
+    checkBox: false,
     showPassword: false,
   });
 
@@ -37,12 +38,26 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = () => {};
+  const handleClickCheckBox = () => {
+    setUser({
+      ...user,
+      checkBox: !user.checkBox,
+    });
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogin = ({ email, password, checkBox } = user) => {
+    console.log(user);
+    window.alert(JSON.stringify(user));
+
+    navigate("/admin");
+  };
 
   return (
     <div>
       <Box className={styles.login_area}>
-        <ValidatorForm className={styles.login_main} ref={login} onSubmit={handleSubmit}>
+        <ValidatorForm className={styles.login_main} ref={loginForm} onSubmit={handleLogin}>
           <Typography component="h3">Login</Typography>
           <Box className={styles.account_form}>
             <TextValidator
@@ -87,7 +102,13 @@ const Login = () => {
             </Typography>
             <FormControlLabel
               control={
-                <Checkbox color="secondary" icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+                <Checkbox
+                  color="secondary"
+                  icon={<FavoriteBorder />}
+                  checkedIcon={<Favorite />}
+                  checked={user.checkBox ? true : false}
+                  onChange={handleClickCheckBox}
+                />
               }
               label="Remember me"
             />

@@ -167,13 +167,27 @@
   "users": [
     {
       "id": 1,
-      "name": "Jon Doe",
+      "username": "Jon Doe",
+      "email": "123@gmail.com",
+      "password": 1213456,
       "company": "VNG Vietnam"
     },
     {
       "id": 2,
-      "name": "Jane Doe",
+      "username": "Jane Doe",
+      "email": "1234@gmail.com",
+      "password": 1213456,
       "company": "Vietnam Airlines"
+    },
+    {
+      "id": 6,
+      "username": "Jon3 Doe",
+      "email": "1235@gmail.com",
+      "password": 1213456,
+      "company": "VNG4 Vietnam"
+    },
+    {
+      "id": 7
     }
   ],
   "categories": [
