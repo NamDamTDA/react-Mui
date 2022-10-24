@@ -48,7 +48,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = ({ email, password, checkBox } = user) => {
-    console.log(user);
     window.alert(JSON.stringify(user));
 
     navigate("/admin");

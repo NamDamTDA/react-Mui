@@ -50,7 +50,6 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleRegister = ({ username, email, password, checkBox } = user) => {
-    console.log(user);
     window.confirm(JSON.stringify(user));
 
     navigate("/login");
