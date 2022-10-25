@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Favorite, FavoriteBorder, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
@@ -9,10 +9,12 @@ import {
   InputAdornment,
   Typography,
 } from "@mui/material";
+import "firebase/compat/auth";
 import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Path from "../../../routes/contants";
+import { logInWithEmailAndPassword, signInWithGoogle } from "../../../firebase/firebaseConfig";
 
 const Login = () => {
   const loginForm = useRef("");
@@ -45,13 +47,9 @@ const Login = () => {
     });
   };
 
-  const navigate = useNavigate();
+  const handleLogin = () => {};
 
-  const handleLogin = ({ email, password, checkBox } = user) => {
-    window.alert(JSON.stringify(user));
-
-    navigate("/admin");
-  };
+  useEffect(() => {});
 
   return (
     <div>
@@ -73,6 +71,7 @@ const Login = () => {
             />
             <TextValidator
               id="password"
+              autoComplete="new-password"
               color="secondary"
               label="Password"
               type={user.showPassword ? "text" : "password"}
@@ -96,9 +95,8 @@ const Login = () => {
               validators={["required"]}
               errorMessages={["This field is required"]}
             />
-            <Typography component="a" href="#" target="_blank">
-              Lost your password?
-            </Typography>
+            
+            <Link to={Path.resetPassword}>Lost your password?</Link>
             <FormControlLabel
               control={
                 <Checkbox
@@ -111,8 +109,13 @@ const Login = () => {
               }
               label="Remember me"
             />
-            <Button type="submit">Login</Button>
+            <Button onClick={() => logInWithEmailAndPassword(user.email, user.password)}>
+              Login
+            </Button>
             <Link to={Path.signUp}>Don't have an account? SignUp!</Link>
+            <Button className="login__btn login__google" onClick={signInWithGoogle}>
+              Login with Google
+            </Button>
           </Box>
         </ValidatorForm>
       </Box>

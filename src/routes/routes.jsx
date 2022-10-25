@@ -12,6 +12,8 @@ import SignUp from "../pages/Client/SignUp";
 import AboutPage from "../pages/Client/AboutPage";
 import ContactUs from "../pages/Client/ContactUs";
 import StoreAdmin from "../pages/Backend";
+import ResetPassword from "../pages/Client/ResetPassword";
+import UserDetail from "../pages/Client/UserDetail";
 
 const MainRoutes = () => {
   return (
@@ -27,6 +29,8 @@ const MainRoutes = () => {
         <Route path={Path.cart} element={<CartPage />} />
         <Route path={Path.login} element={<Login />} />
         <Route path={Path.signUp} element={<SignUp />} />
+        <Route path={Path.resetPassword} element={<ResetPassword />} />
+        <Route path={Path.userDetail} element={<UserDetail />} />
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/admin/*" element={<StoreAdmin />} />

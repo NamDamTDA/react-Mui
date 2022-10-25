@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Path from "../../../routes/contants";
+import { registerWithEmailAndPassword, signInWithGoogle } from "../../../firebase/firebaseConfig";
 
 const SignUp = () => {
   const signUp = useRef("");
@@ -47,13 +48,7 @@ const SignUp = () => {
     });
   };
 
-  const navigate = useNavigate();
-
-  const handleRegister = ({ username, email, password, checkBox } = user) => {
-    window.confirm(JSON.stringify(user));
-
-    navigate("/login");
-  };
+  const handleRegister = async () => {};
 
   useEffect(() => {
     if (!ValidatorForm.hasValidationRule("isPasswordMatch")) {
@@ -83,6 +78,7 @@ const SignUp = () => {
               autoFocus
               id="name"
               name="username"
+              autoComplete="username"
               color="secondary"
               label="Full Name"
               variant="outlined"
@@ -110,6 +106,7 @@ const SignUp = () => {
               id="password"
               color="secondary"
               label="Password"
+              autoComplete="new-password"
               type={user.showPassword ? "text" : "password"}
               variant="outlined"
               onChange={handleChange}
@@ -128,8 +125,8 @@ const SignUp = () => {
               }}
               name="password"
               value={user.password}
-              validators={["required"]}
-              errorMessages={["This field is required"]}
+              validators={["required", "minStringLength:6"]}
+              errorMessages={["This field is required", "Min pass is not below 6"]}
             />
             <TextValidator
               id="passwordRepeat"
@@ -155,8 +152,11 @@ const SignUp = () => {
               }
               label="Accept Our Rule"
             />
-            <Button type="submit">SignUp</Button>
+            <Button onClick={registerWithEmailAndPassword}>SignUp</Button>
             <Link to={Path.login}>Already have an account? Login!</Link>
+            <Button className="login__btn login__google" onClick={signInWithGoogle}>
+              Login with Google
+            </Button>
           </Box>
         </ValidatorForm>
       </Box>

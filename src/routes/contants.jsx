@@ -2,6 +2,8 @@ const Path = {
   home: "/",
   login: "/login",
   signUp: "/signup",
+  resetPassword: '/reset',
+  userDetail: '/user',
   about: "/about",
   contact: "/contact",
   news: "/news",
