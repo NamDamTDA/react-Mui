@@ -4,11 +4,9 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-admin";
 import { auth, db, logout } from "../../../firebase/firebaseConfig";
 
-function UserDetail() {
+const UserDetail = () => {
   const [user] = useAuthState(auth);
   const [name, setName] = useState("");
-
-
   const fetchUserName = async () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
@@ -24,11 +22,11 @@ function UserDetail() {
 
   useEffect(() => {
     fetchUserName();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div>
+    <>
       <Card>
         <Box className="">
           Logged in as
@@ -39,8 +37,8 @@ function UserDetail() {
           </Button>
         </Box>
       </Card>
-    </div>
+    </>
   );
-}
+};
 
 export default UserDetail;

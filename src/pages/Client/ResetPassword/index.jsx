@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import "firebase/compat/auth";
 import styles from "./styles.module.css";
@@ -21,14 +21,10 @@ const ResetPassword = () => {
     });
   };
 
-  const handleSubmit = () => {};
-
-  useEffect(() => {});
-
   return (
     <div>
       <Box className={styles.login_area}>
-        <ValidatorForm className={styles.login_main} ref={passForm} onSubmit={handleSubmit}>
+        <ValidatorForm className={styles.login_main} ref={passForm}>
           <Typography component="h3">Reset password</Typography>
           <Box className={styles.account_form}>
             <TextValidator

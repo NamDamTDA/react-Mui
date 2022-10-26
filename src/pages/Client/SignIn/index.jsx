@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Favorite, FavoriteBorder, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
@@ -47,14 +47,10 @@ const Login = () => {
     });
   };
 
-  const handleLogin = () => {};
-
-  useEffect(() => {});
-
   return (
     <div>
       <Box className={styles.login_area}>
-        <ValidatorForm className={styles.login_main} ref={loginForm} onSubmit={handleLogin}>
+        <ValidatorForm className={styles.login_main} ref={loginForm}>
           <Typography component="h3">Login</Typography>
           <Box className={styles.account_form}>
             <TextValidator
@@ -95,7 +91,7 @@ const Login = () => {
               validators={["required"]}
               errorMessages={["This field is required"]}
             />
-            
+
             <Link to={Path.resetPassword}>Lost your password?</Link>
             <FormControlLabel
               control={

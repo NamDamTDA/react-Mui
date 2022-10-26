@@ -14,6 +14,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `npm run server`
+
+Runs the database in the development mode.\
+Open [http://localhost:3001/products](http://localhost:3001/products) to view it in your browser.
+
+It's run by json-server and reload when changed.\
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
@@ -45,6 +52,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# intern-training-namdt
+## intern-training-namdt
 
 Đàm Tiến Nam repo
