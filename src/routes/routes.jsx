@@ -11,7 +11,7 @@ import Path from "./contants";
 import SignUp from "../pages/Client/SignUp";
 import AboutPage from "../pages/Client/AboutPage";
 import ContactUs from "../pages/Client/ContactUs";
-import StoreAdmin from "../pages/Backend";
+import StoreAdmin from "../pages/Admin";
 import ResetPassword from "../pages/Client/ResetPassword";
 import UserDetail from "../pages/Client/UserDetail";
 

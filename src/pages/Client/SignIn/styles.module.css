@@ -17,7 +17,7 @@
   flex-direction: column;
   margin: 50px 0 auto;
   justify-content: space-between;
-  min-height: 350px;
+  min-height: 400px;
 }
 .login_main h3 {
   font-size: 38px;
@@ -55,8 +55,11 @@
 .account_form a:hover {
   color: #79a206;
 }
-.hide_button{
+.hide_button {
   position: absolute !important;
   right: 5%;
   width: 8% !important;
+}
+.login_google {
+  background: linear-gradient(to right, #0075dc, #f1413e, #ffbb39, #1fa85a) !important;
 }

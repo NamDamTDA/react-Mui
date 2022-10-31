@@ -13,10 +13,10 @@ import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
 import Path from "../../../routes/contants";
-import { registerWithEmailAndPassword, signInWithGoogle } from "../../../firebase/firebaseConfig";
+import { registerWithEmailAndPassword } from "../../../firebase/firebaseConfig";
 
 const SignUp = () => {
-  const signUp = useRef("");
+  const signUp = useRef("form");
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -47,8 +47,9 @@ const SignUp = () => {
       checkBox: !user.checkBox,
     });
   };
-
-  const handleRegister = async () => {};
+  const handleRegister = async () => {
+    registerWithEmailAndPassword(user.username, user.email, user.password);
+  };
 
   useEffect(() => {
     if (!ValidatorForm.hasValidationRule("isPasswordMatch")) {
@@ -72,6 +73,7 @@ const SignUp = () => {
     <div>
       <Box className={styles.signup_area}>
         <ValidatorForm className={styles.signup_main} ref={signUp} onSubmit={handleRegister}>
+          {" "}
           <Typography component="h3">SignUp</Typography>
           <Box className={styles.account_form}>
             <TextValidator
@@ -152,11 +154,8 @@ const SignUp = () => {
               }
               label="Accept Our Rule"
             />
-            <Button onClick={registerWithEmailAndPassword}>SignUp</Button>
+            <Button type="submit">SignUp</Button>
             <Link to={Path.login}>Already have an account? Login!</Link>
-            <Button className="login__btn login__google" onClick={signInWithGoogle}>
-              Login with Google
-            </Button>
           </Box>
         </ValidatorForm>
       </Box>

@@ -5,13 +5,13 @@ import Header from "../components/Header";
 
 const WebsiteLayout = () => {
   return (
-    <div>
-      <Header></Header>
+    <>
+      <Header />
       <main>
-        <Outlet></Outlet>
+        <Outlet />
       </main>
-      <Footer></Footer>
-    </div>
+      <Footer />
+    </>
   );
 };
 
