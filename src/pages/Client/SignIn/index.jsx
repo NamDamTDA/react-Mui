@@ -51,15 +51,17 @@ const Login = () => {
       checkBox: !users.checkBox,
     });
   };
+
   const handleLogin = () => {
-    console.log(users);
     dispatch(login(users));
   };
+  
   useEffect(() => {
     if (user) {
       navigate("/");
     }
   }, [user, navigate]);
+
   return (
     <div>
       <Box className={styles.login_area}>

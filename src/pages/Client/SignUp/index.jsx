@@ -11,13 +11,17 @@ import {
 } from "@mui/material";
 import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Path from "../../../routes/contants";
-import { registerWithEmailAndPassword } from "../../../firebase/firebaseConfig";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../../features/AuthSlice/userSlice";
 
 const SignUp = () => {
   const signUp = useRef("form");
-  const [user, setUser] = useState({
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [users, setUsers] = useState({
     username: "",
     email: "",
     password: "",
@@ -28,33 +32,39 @@ const SignUp = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setUser({
-      ...user,
+    setUsers({
+      ...users,
       [name]: value,
     });
   };
 
   const handleClickShowPassword = () => {
-    setUser({
-      ...user,
-      showPassword: !user.showPassword,
+    setUsers({
+      ...users,
+      showPassword: !users.showPassword,
     });
   };
 
   const handleClickCheckBox = () => {
-    setUser({
-      ...user,
-      checkBox: !user.checkBox,
+    setUsers({
+      ...users,
+      checkBox: !users.checkBox,
     });
   };
   const handleRegister = async () => {
-    registerWithEmailAndPassword(user.username, user.email, user.password);
+    dispatch(register(users));
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     if (!ValidatorForm.hasValidationRule("isPasswordMatch")) {
       ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
-        if (value !== user.password) {
+        if (value !== users.password) {
           return false;
         }
 
@@ -67,7 +77,7 @@ const SignUp = () => {
         ValidatorForm.removeValidationRule("isPasswordMatch");
       }
     };
-  }, [user.passwordRepeat, user.password]);
+  }, [users.passwordRepeat, users.password]);
 
   return (
     <div>
@@ -85,7 +95,7 @@ const SignUp = () => {
               label="Full Name"
               variant="outlined"
               onChange={handleChange}
-              value={user.username}
+              value={users.username}
               validators={["required", "minStringLength:4", "maxStringLength:255"]}
               errorMessages={[
                 "This field is required",
@@ -100,7 +110,7 @@ const SignUp = () => {
               label="Email"
               variant="outlined"
               onChange={handleChange}
-              value={user.email}
+              value={users.email}
               validators={["required", "isEmail"]}
               errorMessages={["This field is required", "Email is not valid"]}
             />
@@ -109,7 +119,7 @@ const SignUp = () => {
               color="secondary"
               label="Password"
               autoComplete="new-password"
-              type={user.showPassword ? "text" : "password"}
+              type={users.showPassword ? "text" : "password"}
               variant="outlined"
               onChange={handleChange}
               InputProps={{
@@ -120,13 +130,13 @@ const SignUp = () => {
                       onClick={handleClickShowPassword}
                       edge="end"
                     >
-                      {user.showPassword ? <VisibilityOff /> : <Visibility />}
+                      {users.showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
                 ),
               }}
               name="password"
-              value={user.password}
+              value={users.password}
               validators={["required", "minStringLength:6"]}
               errorMessages={["This field is required", "Min pass is not below 6"]}
             />
@@ -134,11 +144,11 @@ const SignUp = () => {
               id="passwordRepeat"
               color="secondary"
               label="Confirm Password"
-              type={user.showPassword ? "text" : "password"}
+              type={users.showPassword ? "text" : "password"}
               variant="outlined"
               onChange={handleChange}
               name="passwordRepeat"
-              value={user.passwordRepeat}
+              value={users.passwordRepeat}
               validators={["isPasswordMatch", "required"]}
               errorMessages={["Password mismatch", "This field is required"]}
             />
@@ -148,7 +158,7 @@ const SignUp = () => {
                   color="secondary"
                   icon={<StarBorder />}
                   checkedIcon={<Star />}
-                  checked={user.checkBox ? true : false}
+                  checked={users.checkBox ? true : false}
                   onChange={handleClickCheckBox}
                 />
               }

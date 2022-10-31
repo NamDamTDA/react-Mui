@@ -15,8 +15,9 @@ const icons = [
     icon: <SearchOutlined fontSize="large" />,
   },
   {
-    title: "Open settings",
+    title: "User",
     icon: <Face3Icon fontSize="large" />,
+    link: "user",
   },
   {
     title: "Favorite",
@@ -49,9 +50,9 @@ const Header = () => {
             </Link>
 
             <Box className={styles.header_right}>
-              {icons.map(({ title, icon, items }) => (
+              {icons.map(({ title, icon, link, items }) => (
                 <Tooltip title={title} key={title} className={styles.header_account_list}>
-                  <Typography component="a" href="#" target="_blank">
+                  <Typography component="a" href={link} target="_blank">
                     {icon}
                   </Typography>
                 </Tooltip>

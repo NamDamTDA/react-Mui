@@ -1,8 +1,7 @@
-import { Alert } from "@mui/material";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { toast } from "react-toastify";
 import { auth } from "../../firebase/firebaseConfig";
+import toastr from "toastr";
 
 const initialState = { user: null, error: null };
 
@@ -27,23 +26,19 @@ const userSlice = createSlice({
   extraReducers: {
     [register.fulfilled]: (state, action) => {
       state.user = action.payload.user;
-      toast.success("Register successfully _ Have a good day bros!");
+      toastr.success("Register successfully _ Have a good day bros!");
     },
     [register.rejected]: (state, action) => {
       state.error = action.error.code;
-      <Alert severity="error" variant="filled">
-        {state.error}
-      </Alert>;
+      toastr.error(`Register False _ ${state.error}`);
     },
     [login.fulfilled]: (state, action) => {
       state.user = action.payload.user;
-      toast.success("Login successfully _ Have a good day bros!");
+      toastr.success("Login successfully _ Have a good day bros!");
     },
     [login.rejected]: (state, action) => {
       state.error = action.error.code;
-      <Alert severity="error" variant="filled">
-        {state.error}
-      </Alert>;
+      toastr.error(`Login False _ ${state.error}`);
     },
   },
 });
