@@ -11,7 +11,6 @@ const UserDetail = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(user);
   const handleLogout = async () => {
     dispatch(logout());
     navigate("/");
