@@ -41,3 +41,5 @@
 *::selection {
   background-color: #79a206;
 }
+
+@import "toastr";
