@@ -32,7 +32,7 @@ const CartPage = () => {
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const totalPrice = useSelector(cartTotalPriceSelector);
-  const shipping = 15;
+  const shippingPrice = Math.floor(Math.random() * 16) + 5;
   const onToken = (token) => {
     fetch("/payment", {
       method: "POST",
@@ -109,7 +109,7 @@ const CartPage = () => {
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Shipping</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  {shipping}$
+                  {shippingPrice}$
                 </Typography>
               </Box>
               <Typography component="a" href="#" target="_blank">
@@ -118,7 +118,7 @@ const CartPage = () => {
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Total</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  {totalPrice + shipping}$
+                  {totalPrice + shippingPrice}$
                 </Typography>
               </Box>
               <Box className={styles.checkout_btn}>
@@ -129,8 +129,8 @@ const CartPage = () => {
                   billingAddress
                   shippingAddress
                   image={image}
-                  description={`Your total is $${totalPrice + shipping}`}
-                  amount={(totalPrice + shipping) * 100}
+                  description={`Your total is $${totalPrice + shippingPrice}`}
+                  amount={(totalPrice + shippingPrice) * 100}
                   panelLabel="Pay Now"
                   alipay
                   bitcoin
