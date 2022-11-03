@@ -7,6 +7,7 @@ import { fetchProducts } from "../../features/CartSlice/productsSlice";
 const RelatedProduct = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

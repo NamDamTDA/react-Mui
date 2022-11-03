@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const ProductArea = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

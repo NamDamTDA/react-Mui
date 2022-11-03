@@ -171,16 +171,6 @@ const ProductDetail = () => {
   );
 };
 
-// const product = {
-//   name: `massa porror`,
-//   price: "$68.00",
-//   oldPrice: "$92.00",
-//   image: "https://htmldemo.net/lukani/lukani/assets/img/product/product3.jpg",
-//   sale: "-77%",
-//   rate: 4,
-//   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit assumenda rerum officiis sit illo facere, consectetur facilis aliquid iste beatae, accusamus debitis? Illum officiis quae impedit quam, odit eos!",
-// };
-
 const imgs = [
   {
     index: 0,
