@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Grid, Rating, Typography } from "@mui/material";
+import { Box, Grid, Rating, Skeleton, Typography } from "@mui/material";
 import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/CartSlice/productsSlice";
@@ -14,6 +14,7 @@ const RelatedProduct = () => {
 
   return (
     <div>
+      {products.loading && <Skeleton variant="rectangular" className={styles.product_loading} />}
       <Box component="section" className={styles.product_area}>
         <Box className={styles.section_title}>
           <Typography component="h2">Related Products</Typography>

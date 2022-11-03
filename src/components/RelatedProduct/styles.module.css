@@ -1,6 +1,10 @@
 .product_area {
   margin-bottom: 74px;
 }
+.product_loading {
+  width: 100%;
+  min-height: 600px;
+}
 
 .section_title {
   text-align: center;
