@@ -23,7 +23,9 @@ import ScrollButton from "../../../components/ScrollButton";
 import StripeCheckout from "react-stripe-checkout";
 import { useNavigate } from "react-router";
 
-const image = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/540.jpg"
+const image =
+  "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/540.jpg";
+const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -43,7 +45,6 @@ const CartPage = () => {
       });
     });
   };
-  const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
 
   return (
     <div>
@@ -127,7 +128,7 @@ const CartPage = () => {
                   name="Lukani Home"
                   billingAddress
                   shippingAddress
-                  image= {image}
+                  image={image}
                   description={`Your total is $${totalPrice + shipping}`}
                   amount={(totalPrice + shipping) * 100}
                   panelLabel="Pay Now"
