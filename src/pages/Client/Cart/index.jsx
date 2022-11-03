@@ -18,13 +18,32 @@ import { DeleteOutline } from "@mui/icons-material";
 import BrandArea from "../../../components/BrandArea";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
-import { deleteItem } from "../../../features/CartSlice/cartSlice";
+import { clear, deleteItem } from "../../../features/CartSlice/cartSlice";
 import ScrollButton from "../../../components/ScrollButton";
+import StripeCheckout from "react-stripe-checkout";
+import { useNavigate } from "react-router";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
   const totalPrice = useSelector(cartTotalPriceSelector);
+  const onToken = (token) => {
+    console.log(token);
+    fetch("/payment", {
+      method: "POST",
+      body: JSON.stringify(token),
+    }).then((response) => {
+      response.json().then((data) => {
+        alert(`We are in business, ${data.email}`);
+        alert("Payment Successfully!");
+        dispatch(clear());
+        navigate("/");
+      });
+    });
+  };
+  const publishableKey =
+    "pk_test_51LysnxEZVHbOvmL8bdLpFc2HCEr8N1wKYBz2UNgHqaaJ0G9g5SkwifUA5bEz6WUzzZNjX92xPmiMn4HwDowQYDce00QbdeeSd0";
 
   return (
     <div>
@@ -103,6 +122,20 @@ const CartPage = () => {
               </Box>
               <Box className={styles.checkout_btn}>
                 <Button>Proceed to Checkout</Button>
+                <StripeCheckout
+                  label="Pay Now"
+                  name="Lukani Home"
+                  billingAddress
+                  shippingAddress
+                  image="http://loremflickr.com/40/40"
+                  description={`Your total is $${totalPrice + 15}`}
+                  amount={(totalPrice + 15) * 100}
+                  panelLabel="Pay Now"
+                  alipay
+                  bitcoin
+                  token={onToken}
+                  stripeKey={publishableKey}
+                />
               </Box>
             </Box>
           </Box>

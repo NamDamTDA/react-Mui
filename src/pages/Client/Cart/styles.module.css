@@ -87,9 +87,8 @@
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
-  height: 55px;
   line-height: 20px;
-  padding: 10px 15px;
+  padding: 18px 15px;
   text-transform: uppercase;
   border-radius: 3px;
   margin-left: 20px;
@@ -134,12 +133,12 @@
   background: #79a206;
   color: #ffffff;
   font-size: 15px;
-  padding: 3px 14px;
+  padding: 10px 14px;
   line-height: 30px;
   font-weight: 500;
   display: inline-block;
   text-transform: capitalize;
   margin-bottom: 0;
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
 }

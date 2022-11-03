@@ -4,27 +4,27 @@ import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/CartSlice/productsSlice";
 import { addToCart } from "../../features/CartSlice/cartSlice";
+import { Link } from "react-router-dom";
 
 const ProductArea = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   return (
     <div>
-      {products.loading && <Skeleton variant="rectangular" className={styles.product_loading}/>}
+      {products.loading && <Skeleton variant="rectangular" className={styles.product_loading} />}
       <Box component="section" className={styles.product_area}>
         <Box className={styles.product_container}>
           <Box className={`${styles.row}`}>
             {products.list.map((product) => (
               <Grid key={product.id} className={styles.product_item}>
                 <Box className={styles.product_thumb}>
-                  <Typography component="a" href="#" target="_blank">
+                  <Link to={`/products/${product.id}`}>
                     <Box component="img" alt="Logo-product" src={product.image} />
-                  </Typography>
+                  </Link>
                   <Box className={styles.label_product}>
                     <Typography component="span" className={styles.label_sale}>
                       {product.sale}
@@ -42,7 +42,8 @@ const ProductArea = () => {
                       ${product.oldPrice}
                     </Typography>
                   </Box>
-                  <Button className={styles.add_cart}
+                  <Button
+                    className={styles.add_cart}
                     onClick={() => {
                       dispatch(addToCart(product));
                     }}

@@ -21,15 +21,28 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 import BrandArea from "../../../components/BrandArea";
+import CartDrawer from "../../../components/CartDrawer";
 import Description from "../../../components/Description";
 import RelatedProduct from "../../../components/RelatedProduct";
 import ScrollButton from "../../../components/ScrollButton";
+import { addToCart } from "../../../features/CartSlice/cartSlice";
+import { fetchProduct } from "../../../features/CartSlice/productDetailSlice";
 import styles from "./styles.module.css";
 
 const ProductDetail = () => {
-  const { name, image, rate, desc, price, oldPrice } = product;
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.productDetail);
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchProduct(id));
+  }, [dispatch, id]);
+
+  const { name, image, price, oldPrice } = product.product;
 
   return (
     <div>
@@ -64,7 +77,7 @@ const ProductDetail = () => {
             <Box className={styles.product_content}>
               <Box className={styles.content_header}>
                 <Typography component="h1">{name}</Typography>
-                <Rating name="read-only" value={rate} readOnly />
+                <Rating name="read-only" value={5} readOnly />
                 <Box className={styles.price_box}>
                   <Typography component="span" className={styles.current_price}>
                     {price}
@@ -74,7 +87,9 @@ const ProductDetail = () => {
                   </Typography>
                 </Box>
                 <Typography component="span" className={styles.product_desc}>
-                  {desc}
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit
+                  assumenda rerum officiis sit illo facere, consectetur facilis aliquid iste beatae,
+                  accusamus debitis? Illum officiis quae impedit quam, odit eos!"
                 </Typography>
               </Box>
               <Box className={styles.content_button}>
@@ -101,7 +116,13 @@ const ProductDetail = () => {
                         <Loyalty fontSize="large" />
                       </Typography>
                     </Tooltip>
-                    <Button variant="contained" className={styles.add_cart}>
+                    <Button
+                      variant="contained"
+                      className={styles.add_cart}
+                      onClick={() => {
+                        dispatch(addToCart(product.product));
+                      }}
+                    >
                       Add to cart
                     </Button>
                   </Box>
@@ -145,19 +166,20 @@ const ProductDetail = () => {
       <Description />
       <RelatedProduct />
       <BrandArea />
+      <CartDrawer />
     </div>
   );
 };
 
-const product = {
-  name: `massa porror`,
-  price: "$68.00",
-  oldPrice: "$92.00",
-  image: "https://htmldemo.net/lukani/lukani/assets/img/product/product3.jpg",
-  sale: "-77%",
-  rate: 4,
-  desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit assumenda rerum officiis sit illo facere, consectetur facilis aliquid iste beatae, accusamus debitis? Illum officiis quae impedit quam, odit eos!",
-};
+// const product = {
+//   name: `massa porror`,
+//   price: "$68.00",
+//   oldPrice: "$92.00",
+//   image: "https://htmldemo.net/lukani/lukani/assets/img/product/product3.jpg",
+//   sale: "-77%",
+//   rate: 4,
+//   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum impedit assumenda rerum officiis sit illo facere, consectetur facilis aliquid iste beatae, accusamus debitis? Illum officiis quae impedit quam, odit eos!",
+// };
 
 const imgs = [
   {

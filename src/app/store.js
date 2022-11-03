@@ -5,13 +5,16 @@ import productsReducer from "../features/CartSlice/productsSlice";
 import uiReducer from "../features/CartSlice/uiSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
+import productDetailReducer from "../features/CartSlice/productDetailSlice";
 
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["auth"],
 };
 const reducer = combineReducers({
   products: productsReducer,
+  productDetail: productDetailReducer,
   cart: cartReducer,
   ui: uiReducer,
   auth: userReducer,

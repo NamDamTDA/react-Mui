@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProducts } from "../../api/instance";
+import { getListProducts } from "../../api/instance";
 
 const initialState = { loading: false, list: [] };
 const productsSlice = createSlice({
@@ -23,8 +23,7 @@ export const fetchProducts = () => async (dispatch) => {
   dispatch(save([]));
   dispatch(startFetch());
 
-  const products = await getProducts();
-
+  const products = await getListProducts();
   dispatch(save(products.data));
 };
 

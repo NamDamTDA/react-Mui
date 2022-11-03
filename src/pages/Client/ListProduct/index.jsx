@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import CartDrawer from "../../../components/CartDrawer";
 import ProductArea from "../../../components/ProductArea";
 import ScrollButton from "../../../components/ScrollButton";
 import styles from "./styles.module.css";
@@ -16,6 +17,7 @@ const ListProduct = () => {
   return (
     <div>
       <ScrollButton showBelow={250} />
+      <CartDrawer />
       <Box component="section" className={styles.product_page_area}>
         <Box className={styles.section_title}>
           <Typography component="h4">Product Page List</Typography>
