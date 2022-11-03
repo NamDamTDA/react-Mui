@@ -20,7 +20,7 @@ const ProductArea = () => {
       <Box component="section" className={styles.product_area}>
         <Box className={styles.product_container}>
           <Box className={`${styles.row}`}>
-            {!products
+            {!products.list === ""
               ? "null"
               : products.list.map((product) => (
                   <Grid key={product.id} className={styles.product_item}>
