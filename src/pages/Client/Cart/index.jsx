@@ -23,27 +23,27 @@ import ScrollButton from "../../../components/ScrollButton";
 import StripeCheckout from "react-stripe-checkout";
 import { useNavigate } from "react-router";
 
+const image = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/540.jpg"
+
 const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const totalPrice = useSelector(cartTotalPriceSelector);
+  const shipping = 15;
   const onToken = (token) => {
-    console.log(token);
     fetch("/payment", {
       method: "POST",
       body: JSON.stringify(token),
     }).then((response) => {
       response.json().then((data) => {
-        alert(`We are in business, ${data.email}`);
         alert("Payment Successfully!");
         dispatch(clear());
         navigate("/");
       });
     });
   };
-  const publishableKey =
-    "pk_test_51LysnxEZVHbOvmL8bdLpFc2HCEr8N1wKYBz2UNgHqaaJ0G9g5SkwifUA5bEz6WUzzZNjX92xPmiMn4HwDowQYDce00QbdeeSd0";
+  const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
 
   return (
     <div>
@@ -108,7 +108,7 @@ const CartPage = () => {
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Shipping</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  15$
+                  {shipping}$
                 </Typography>
               </Box>
               <Typography component="a" href="#" target="_blank">
@@ -117,7 +117,7 @@ const CartPage = () => {
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Total</Typography>
                 <Typography component="p" className={styles.cart_amount}>
-                  {totalPrice + 15}$
+                  {totalPrice + shipping}$
                 </Typography>
               </Box>
               <Box className={styles.checkout_btn}>
@@ -127,9 +127,9 @@ const CartPage = () => {
                   name="Lukani Home"
                   billingAddress
                   shippingAddress
-                  image="http://loremflickr.com/40/40"
-                  description={`Your total is $${totalPrice + 15}`}
-                  amount={(totalPrice + 15) * 100}
+                  image= {image}
+                  description={`Your total is $${totalPrice + shipping}`}
+                  amount={(totalPrice + shipping) * 100}
                   panelLabel="Pay Now"
                   alipay
                   bitcoin
