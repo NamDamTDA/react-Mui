@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const ProductArea = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -20,40 +20,42 @@ const ProductArea = () => {
       <Box component="section" className={styles.product_area}>
         <Box className={styles.product_container}>
           <Box className={`${styles.row}`}>
-            {products.list.map((product) => (
-              <Grid key={product.id} className={styles.product_item}>
-                <Box className={styles.product_thumb}>
-                  <Link to={`/products/${product.id}`}>
-                    <Box component="img" alt="Logo-product" src={product.image} />
-                  </Link>
-                  <Box className={styles.label_product}>
-                    <Typography component="span" className={styles.label_sale}>
-                      {product.sale}
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box className={styles.product_content}>
-                  <Rating name="read-only" value={product.rate} readOnly />
-                  <Typography component="h4">{product.name}</Typography>
-                  <Box className={styles.price_box}>
-                    <Typography component="span" className={styles.current_price}>
-                      ${product.price}
-                    </Typography>
-                    <Typography component="span" className={styles.old_price}>
-                      ${product.oldPrice}
-                    </Typography>
-                  </Box>
-                  <Button
-                    className={styles.add_cart}
-                    onClick={() => {
-                      dispatch(addToCart(product));
-                    }}
-                  >
-                    Add to cart
-                  </Button>
-                </Box>
-              </Grid>
-            ))}
+            {!products
+              ? "null"
+              : products.list.map((product) => (
+                  <Grid key={product.id} className={styles.product_item}>
+                    <Box className={styles.product_thumb}>
+                      <Link to={`/products/${product.id}`}>
+                        <Box component="img" alt="Logo-product" src={product.image} />
+                      </Link>
+                      <Box className={styles.label_product}>
+                        <Typography component="span" className={styles.label_sale}>
+                          {product.sale}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box className={styles.product_content}>
+                      <Rating name="read-only" value={product.rate} readOnly />
+                      <Typography component="h4">{product.name}</Typography>
+                      <Box className={styles.price_box}>
+                        <Typography component="span" className={styles.current_price}>
+                          ${product.price}
+                        </Typography>
+                        <Typography component="span" className={styles.old_price}>
+                          ${product.oldPrice}
+                        </Typography>
+                      </Box>
+                      <Button
+                        className={styles.add_cart}
+                        onClick={() => {
+                          dispatch(addToCart(product));
+                        }}
+                      >
+                        Add to cart
+                      </Button>
+                    </Box>
+                  </Grid>
+                ))}
           </Box>
         </Box>
       </Box>
