@@ -52,6 +52,7 @@ const SignUp = () => {
     });
   };
   const handleRegister = async () => {
+    console.log(users);
     dispatch(register(users));
   };
 

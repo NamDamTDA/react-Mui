@@ -7,8 +7,7 @@ const initialState = { user: null, error: null };
 
 export const register = createAsyncThunk(
   "auth/signup",
-  async (data) =>
-    await createUserWithEmailAndPassword(auth, data.username, data.email, data.password)
+  async (data) => await createUserWithEmailAndPassword(auth, data.email, data.password)
 );
 export const login = createAsyncThunk(
   "auth/login",
