@@ -11,7 +11,7 @@ const Footer = () => {
     <Box component="footer" className={styles.footer_widgets}>
       <Box className={styles.footer_top}>
         <Container maxWidth="xl" className="container">
-          <Grid container className="row">
+          <Grid container className={styles.row}>
             <Grid item className={styles.widgets_container}>
               <Box>
                 <Link to={brand.route}>

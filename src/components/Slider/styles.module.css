@@ -1,16 +1,40 @@
+@media only screen and (max-width: 400px) {
+  .slider_section {
+    height: 600px !important;
+    text-align: center;
+  }
+  .single_slider {
+    height: 400px !important;
+    width: fit-content;
+  }
+  .slider_content h1 {
+    font-size: 29px !important;
+    line-height: 9px !important;
+  }
+  .slider_content {
+    top: 30% !important;
+    left: 10% !important;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .slider_content {
+    top: 20% !important;
+    left: 10% !important;
+  }
+}
 .slider_section {
   height: 950px;
   position: relative;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-position: center center !important;
+  background-size: cover !important;
 }
 .single_slider {
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
   height: 738px;
 }
-.slider_content{
-  position: absolute; 
+.slider_content {
+  position: absolute;
   top: 20%;
   left: 20%;
 }

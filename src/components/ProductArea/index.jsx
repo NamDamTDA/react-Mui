@@ -28,7 +28,7 @@ const ProductArea = () => {
                   </Link>
                   <Box className={styles.label_product}>
                     <Typography component="span" className={styles.label_sale}>
-                      {product.sale}
+                      {product.sale}%
                     </Typography>
                   </Box>
                 </Box>

@@ -1,3 +1,16 @@
+@media only screen and (max-width: 400px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .shipping_area {
+    padding: 40px 20px !important;
+  }
+  .single_shipping {
+    width: 100% !important;
+  }
+}
 .shipping_area {
   padding: 99px 20px;
   max-width: 1200px;

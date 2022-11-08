@@ -1,10 +1,20 @@
+@media only screen and (max-width: 400px) {
+  .product_item {
+    margin-left: 0px !important;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .product_item {
+    margin: 15px !important;
+  }
+}
 .product_area {
   margin-bottom: 74px;
   margin-top: 50px;
 }
-.product_loading{
- width: 100%;
- min-height: 900px;
+.product_loading {
+  width: 100%;
+  min-height: 900px;
 }
 .row {
   display: flex;
@@ -84,6 +94,6 @@
   width: 100%;
   margin: 20px 0 !important;
 }
-.add_cart:hover{
+.add_cart:hover {
   background: #222 !important;
 }

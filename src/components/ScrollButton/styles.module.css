@@ -1,8 +1,8 @@
 .totop {
   z-index: 2 !important;
   position: fixed !important;
-  bottom: 80px;
-  right: 20px;
+  bottom: 8%;
+  right: 10%;
   background-color: #79a206 !important;
   color: white !important;
 }

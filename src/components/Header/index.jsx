@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <>
-      <Box component="header" className={`${styles.header_transparent} ${styles.sticky_header}`}>
+      <Box component="header" className={styles.sticky_header}>
         <Container className={styles.container}>
           <Toolbar disableGutters className={styles.row}>
             <Box className={styles.main_menu}>
