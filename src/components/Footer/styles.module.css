@@ -1,3 +1,16 @@
+@media only screen and (max-width: 840px) {
+  .row {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .widgets_container {
+    margin: 0 200px !important;
+  }
+  .widget_menu {
+    max-width: 100% !important;
+  }
+}
 @media only screen and (max-width: 400px) {
   .row {
     display: flex !important;
@@ -7,7 +20,7 @@
     text-align: center;
   }
   .widgets_container {
-    margin-right: 0;
+    margin: 0 !important;
   }
   .widget_menu {
     max-width: 100% !important;
@@ -24,20 +37,7 @@
     margin-right: 40px;
   }
 }
-@media only screen and (max-width: 840px) {
-  .row {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  .widgets_container {
-    margin: 0 200px !important;
-  }
-  .widget_menu {
-    max-width: 100% !important;
-  }
-}
+
 .widgets_title {
   font-size: 14px !important;
   line-height: 16px !important;

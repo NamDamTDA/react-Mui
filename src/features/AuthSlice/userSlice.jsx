@@ -19,7 +19,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout(state) {
-      return [];
+      state.user = null;
     },
   },
   extraReducers: {

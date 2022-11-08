@@ -1,3 +1,13 @@
+@media only screen and (max-width: 400px) {
+  .section_title {
+    margin-top: 110px !important;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .section_title {
+    margin-top: 110px !important;
+  }
+}
 .section_title {
   background: #f0f0f0;
   border-bottom: 1px solid #e1e1e1;

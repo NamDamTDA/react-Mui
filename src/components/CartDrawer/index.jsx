@@ -6,12 +6,13 @@ import { DeleteOutline } from "@mui/icons-material";
 import { toggle } from "../../features/CartSlice/uiSlice";
 import styled, { keyframes } from "styled-components";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CartDrawer = () => {
   const cart = useSelector((state) => state.cart);
   const ui = useSelector((state) => state.ui);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const totalPrice = useSelector(cartTotalPriceSelector);
 
   return (
@@ -67,8 +68,12 @@ const CartDrawer = () => {
         {totalPrice > 0 && (
           <Box>
             <CartTotal>Totals: {totalPrice}$</CartTotal>
-            <CheckoutButton>
-              <Link to="/cart">View Cart</Link>
+            <CheckoutButton
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              View Cart
             </CheckoutButton>
           </Box>
         )}
@@ -104,6 +109,14 @@ const CartContainer = styled.div`
   overflow: auto;
   transition: transform 0.2s ease-in-out;
   transform: translateX(${(p) => (p.visible ? 0 : "600px")});
+  @media (max-width: 840px) {
+    padding: 100px 12px 0;
+    width: 400px;
+  }
+  @media (max-width: 400px) {
+    padding: 100px 12px 0;
+    width: 350px;
+  }
 `;
 const Button = styled.button`
   padding: 10px 12px;
@@ -134,6 +147,10 @@ const CartProductImage = styled.img`
   height: 200px;
   margin-right: 8px;
   border: 1px solid #f6f6f6;
+  @media (max-width: 400px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 const CartProductTitle = styled.div`
   font-size: 20px;

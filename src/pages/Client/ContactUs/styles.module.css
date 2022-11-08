@@ -1,3 +1,12 @@
+@media only screen and (max-width: 400px) {
+  .contact_form input {
+    width: 300px !important;
+  }
+  .contact_message {
+    text-align: center;
+    margin: 20px;
+  }
+}
 .section_title {
   background: #f0f0f0;
   border-bottom: 1px solid #e1e1e1;
@@ -100,4 +109,3 @@
   transition: 0.3s;
   border-radius: 4px;
 }
-

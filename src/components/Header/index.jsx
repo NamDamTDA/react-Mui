@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Box, Container, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
+import { Badge, Box, Container, IconButton, Toolbar, Tooltip } from "@mui/material";
 import Face3Icon from "@mui/icons-material/Face3";
 import { FavoriteBorder, SearchOutlined, ShoppingCartSharp } from "@mui/icons-material";
 import styles from "./styles.module.css";
@@ -17,7 +17,7 @@ const icons = [
   {
     title: "User",
     icon: <Face3Icon fontSize="large" />,
-    link: "user",
+    link: "/user",
   },
   {
     title: "Favorite",
@@ -52,9 +52,7 @@ const Header = () => {
             <Box className={styles.header_right}>
               {icons.map(({ title, icon, link, items }) => (
                 <Tooltip title={title} key={title} className={styles.header_account_list}>
-                  <Typography component="a" href={link} target="_blank">
-                    {icon}
-                  </Typography>
+                  <Link to={link}>{icon}</Link>
                 </Tooltip>
               ))}
               <IconButton

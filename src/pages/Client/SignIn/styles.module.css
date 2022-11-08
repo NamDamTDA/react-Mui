@@ -1,3 +1,11 @@
+@media only screen and (max-width: 400px) {
+  .account_form input {
+    width: 300px !important;
+  }
+  .login_main {
+    padding: 20px !important;
+  }
+}
 .login_area {
   background-image: url(https://htmldemo.net/lukani/lukani/assets/img/slider/slider7.jpg);
   height: 960px;
