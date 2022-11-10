@@ -40,11 +40,7 @@ const ListProduct = () => {
             </NativeSelect>
           </FormControl>
         </Box>
-
         <ProductArea />
-        <Stack spacing={2} className={styles.select_option}>
-          <Pagination count={5} color="secondary" />
-        </Stack>
       </Box>
     </div>
   );

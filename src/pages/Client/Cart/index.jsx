@@ -139,12 +139,7 @@ const CartPage = () => {
                 </Typography>
               </Box>
               <Box className={styles.checkout_btn}>
-                <Button
-                  disabled={totalPrice === 0}
-                  onClick={() => {
-                    navigate("/checkout");
-                  }}
-                >
+                <Button disabled={totalPrice === 0} onClick={() => navigate("/checkout")}>
                   Proceed to Checkout
                 </Button>
                 <Button onClick={handleBackToPage}>Continue Shopping</Button>

@@ -87,7 +87,7 @@ const Checkout = () => {
                 <select
                   {...register("province", {
                     required: "Please select the province",
-                    onChange: (e) => onChangeProvince(e),
+                    onChange: onChangeProvince,
                   })}
                 >
                   <option value="">Select Province</option>
@@ -104,7 +104,7 @@ const Checkout = () => {
                 <select
                   {...register("district", {
                     required: "Please select the district",
-                    onChange: (e) => onChangeDistrict(e),
+                    onChange: onChangeDistrict,
                   })}
                 >
                   <option value="">Select District</option>

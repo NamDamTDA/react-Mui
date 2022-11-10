@@ -3,7 +3,7 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import toastr from "toastr";
 import styles from "./CheckoutForm.module.css";
 
-export default function CheckoutForm() {
+const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -22,7 +22,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/cart",
+        return_url: process.env.REACT_APP_STRIPE_CART_PAGE,
       },
     });
 
@@ -56,4 +56,6 @@ export default function CheckoutForm() {
       </form>
     </>
   );
-}
+};
+
+export default CheckoutForm;

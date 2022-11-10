@@ -5,10 +5,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import axios from "axios";
 import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
+import styles from "./Payment.module.css";
 
 const Payment = () => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const amount = useSelector(cartTotalPriceSelector);
 
@@ -17,12 +19,14 @@ const Payment = () => {
       amount,
     });
     setClientSecret(data.clientSecret);
+    setIsLoading(false);
   };
 
   const getPublishableKey = async () => {
     const { data } = await axios.get(process.env.REACT_APP_SERVER_CONFIG_API);
     setStripePromise(loadStripe(data.publishableKey));
   };
+
   useEffect(() => {
     getClientSecret();
     getPublishableKey();
@@ -30,6 +34,17 @@ const Payment = () => {
 
   return (
     <>
+      {isLoading && (
+        <div className={styles.music_waves}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      )}
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm />

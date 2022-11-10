@@ -14,7 +14,7 @@
 }
 .product_loading {
   width: 100%;
-  min-height: 900px;
+  min-height: 500px;
 }
 .row {
   display: flex;
@@ -96,4 +96,9 @@
 }
 .add_cart:hover {
   background: #222 !important;
+}
+.select_option {
+  display: flex;
+  align-items: center;
+  min-width: 300px !important;
 }

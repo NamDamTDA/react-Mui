@@ -24,8 +24,4 @@
   margin: 30px auto;
   max-width: 1200px !important;
 }
-.select_option {
-  display: flex;
-  align-items: center;
-  min-width: 300px !important;
-}
+
