@@ -1,3 +1,4 @@
+import { Logout } from "@mui/icons-material";
 import { Box, Button, Card, Skeleton, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,9 +29,9 @@ const UserDetail = () => {
           <Box className={styles.user_main}>
             <Typography component="p">Logged in as</Typography>
             <Typography component="h1">{user.email}</Typography>
-            <Button className="" onClick={handleLogout}>
+            <Button className="" onClick={handleLogout} endIcon={<Logout />}>
               Logout
-            </Button>{" "}
+            </Button>
             <br />
             <Link to="/admin">Go to Admin</Link>
           </Box>

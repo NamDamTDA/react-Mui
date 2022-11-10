@@ -8,13 +8,14 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, { payload }) {
       const { id } = payload;
+      const { quantity } = payload;
       const find = state.find((item) => item.id === id);
       if (find) {
         return state.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === id ? { ...item, quantity: item.quantity + (quantity ? quantity : 1) } : item
         );
       } else {
-        state.push({ ...payload, quantity: 1 });
+        state.push({ ...payload, quantity: quantity ? quantity : 1 });
       }
     },
     increament(state, { payload }) {
@@ -28,7 +29,7 @@ const cartSlice = createSlice({
       );
     },
     deleteItem(state, { payload }) {
-      return state = state.filter((item) => item.id !== payload);;
+      return (state = state.filter((item) => item.id !== payload));
     },
     clear(state) {
       return [];

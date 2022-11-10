@@ -1,7 +1,11 @@
 import React from "react";
 import { Badge, Box, Container, IconButton, Toolbar, Tooltip } from "@mui/material";
 import Face3Icon from "@mui/icons-material/Face3";
-import { FavoriteBorder, SearchOutlined, ShoppingCartSharp } from "@mui/icons-material";
+import {
+  SearchOutlined,
+  ShoppingBasket,
+  ShoppingCartSharp,
+} from "@mui/icons-material";
 import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalSelector } from "../../features/CartSlice/selectors";
@@ -20,8 +24,9 @@ const icons = [
     link: "/user",
   },
   {
-    title: "Favorite",
-    icon: <FavoriteBorder fontSize="large" />,
+    title: "Go to Cart",
+    icon: <ShoppingBasket fontSize="large" />,
+    link: "/cart",
   },
 ];
 

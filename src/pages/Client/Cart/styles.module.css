@@ -1,10 +1,37 @@
+@media only screen and (max-width: 400px) {
+  .table_responsive table {
+    width: 100%;
+  }
+  .coupon_area {
+    flex-direction: column;
+    align-content: center;
+  }
+  .cart_page_area {
+    max-width: 100% !important;
+    min-width: 200px !important;
+  }
+  .coupon_left,
+  .coupon_right {
+    width: 90% !important;
+    margin: 20px 0 !important;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .table_responsive table {
+    width: 100%;
+  }
+  .coupon_left,
+  .coupon_right {
+    width: 90% !important;
+    margin: 20px 0 !important;
+  }
+}
 .cart_page_area {
   margin: 100px auto;
   margin-top: 200px;
   max-width: 1200px;
   min-width: 500px;
 }
-
 .table_responsive table thead {
   background: #e1e1e1;
 }
@@ -91,8 +118,8 @@
   padding: 18px 15px;
   text-transform: uppercase;
   border-radius: 3px;
-  margin-left: 20px;
-  width: 40%;
+  margin-top: 10px;
+  width: 100%;
 }
 .coupon_inner button:hover {
   background-color: #79a206;
@@ -109,7 +136,7 @@
   font-size: 18px !important;
   font-weight: 500 !important;
 }
-.coupon_inner a {
+.shipping_free {
   display: block;
   text-align: right;
   font-size: 14px;
@@ -123,7 +150,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-.coupon_inner a:hover {
+.shipping_free:hover {
   color: #79a206;
 }
 .checkout_btn {
@@ -141,4 +168,7 @@
   margin-bottom: 0;
   width: 100%;
   margin: 10px 0;
+}
+.checkout_btn button:disabled {
+  background: #ccc !important;
 }

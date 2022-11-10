@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import {
   Box,
@@ -14,37 +14,43 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { DeleteOutline } from "@mui/icons-material";
+import { Add, DeleteOutline, Remove } from "@mui/icons-material";
 import BrandArea from "../../../components/BrandArea";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
-import { clear, deleteItem } from "../../../features/CartSlice/cartSlice";
+import { clear, decrement, deleteItem, increament } from "../../../features/CartSlice/cartSlice";
 import ScrollButton from "../../../components/ScrollButton";
-import StripeCheckout from "react-stripe-checkout";
 import { useNavigate } from "react-router";
-
-const image =
-  "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/540.jpg";
-const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+import { useSearchParams } from "react-router-dom";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const statusCheckout = searchParams.get("redirect_status");
   const totalPrice = useSelector(cartTotalPriceSelector);
-  const shippingPrice = Math.floor(Math.random() * 16) + 5;
-  const onToken = (token) => {
-    fetch("/payment", {
-      method: "POST",
-      body: JSON.stringify(token),
-    }).then((response) => {
-      response.json().then((data) => {
-        alert("Payment Successfully!");
-        dispatch(clear());
-        navigate("/");
-      });
-    });
+  let shippingPrice = 20;
+
+  if (totalPrice === 0 || totalPrice > 2000) {
+    shippingPrice = 0;
+  }
+
+  const handleIncrease = (id) => {
+    dispatch(increament(id));
   };
+
+  const handleDecrease = (id, quantity) => {
+    if (quantity === 1) return;
+    dispatch(decrement(id));
+  };
+  const handleBackToPage = () => navigate(-1);
+
+  useEffect(() => {
+    if (statusCheckout === "succeeded") {
+      dispatch(clear());
+    }
+  }, [statusCheckout, dispatch]);
 
   return (
     <div>
@@ -81,7 +87,18 @@ const CartPage = () => {
                   <TableCell align="center" className={styles.product_price}>
                     {cartItem.price}$
                   </TableCell>
-                  <TableCell align="center">{cartItem.quantity}</TableCell>
+                  <TableCell align="center">
+                    <Button
+                      color="secondary"
+                      onClick={() => handleDecrease(cartItem.id, cartItem.quantity)}
+                    >
+                      <Remove />
+                    </Button>
+                    {cartItem.quantity}
+                    <Button color="secondary" onClick={() => handleIncrease(cartItem.id)}>
+                      <Add />
+                    </Button>
+                  </TableCell>
                   <TableCell align="center">{cartItem.quantity * cartItem.price}$</TableCell>
                 </TableRow>
               ))}
@@ -112,8 +129,8 @@ const CartPage = () => {
                   {shippingPrice}$
                 </Typography>
               </Box>
-              <Typography component="a" href="#" target="_blank">
-                Calculate Shipping
+              <Typography component="span" className={styles.shipping_free}>
+                Free Shipping for all over 2000$
               </Typography>
               <Box className={styles.cart_subtotal}>
                 <Typography component="p">Total</Typography>
@@ -122,21 +139,15 @@ const CartPage = () => {
                 </Typography>
               </Box>
               <Box className={styles.checkout_btn}>
-                <Button>Proceed to Checkout</Button>
-                <StripeCheckout
-                  label="Pay Now"
-                  name="Lukani Home"
-                  billingAddress
-                  shippingAddress
-                  image={image}
-                  description={`Your total is $${totalPrice + shippingPrice}`}
-                  amount={(totalPrice + shippingPrice) * 100}
-                  panelLabel="Pay Now"
-                  alipay
-                  bitcoin
-                  token={onToken}
-                  stripeKey={publishableKey}
-                />
+                <Button
+                  disabled={totalPrice === 0}
+                  onClick={() => {
+                    navigate("/checkout");
+                  }}
+                >
+                  Proceed to Checkout
+                </Button>
+                <Button onClick={handleBackToPage}>Continue Shopping</Button>
               </Box>
             </Box>
           </Box>

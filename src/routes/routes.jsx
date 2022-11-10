@@ -14,6 +14,8 @@ import ContactUs from "../pages/Client/ContactUs";
 import StoreAdmin from "../pages/Admin";
 import ResetPassword from "../pages/Client/ResetPassword";
 import UserDetail from "../pages/Client/UserDetail";
+import Checkout from "../pages/Client/CheckOut";
+import Payment from "../pages/Client/CheckOut/Payment";
 
 const MainRoutes = () => {
   return (
@@ -27,6 +29,8 @@ const MainRoutes = () => {
           <Route path={Path.productDetail} element={<ProductDetail />} />
         </Route>
         <Route path={Path.cart} element={<CartPage />} />
+        <Route path={Path.checkOut} element={<Checkout />} />
+        <Route path={Path.payment} element={<Payment />} />
         <Route path={Path.login} element={<Login />} />
         <Route path={Path.signUp} element={<SignUp />} />
         <Route path={Path.resetPassword} element={<ResetPassword />} />
