@@ -69,9 +69,7 @@ const CartDrawer = () => {
           <Box>
             <CartTotal>Totals: {totalPrice}$</CartTotal>
             <CheckoutButton
-              onClick={() => {
-                navigate("/cart");
-              }}
+              onClick={() => navigate("/cart")}
             >
               View Cart
             </CheckoutButton>
