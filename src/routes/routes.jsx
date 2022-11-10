@@ -16,6 +16,7 @@ import ResetPassword from "../pages/Client/ResetPassword";
 import UserDetail from "../pages/Client/UserDetail";
 import Checkout from "../pages/Client/CheckOut";
 import Payment from "../pages/Client/CheckOut/Payment";
+import Success from "../pages/Client/CheckOut/Success";
 
 const MainRoutes = () => {
   return (
@@ -29,6 +30,7 @@ const MainRoutes = () => {
           <Route path={Path.productDetail} element={<ProductDetail />} />
         </Route>
         <Route path={Path.cart} element={<CartPage />} />
+        <Route path="/success" element={<Success />} />
         <Route path={Path.checkOut} element={<Checkout />} />
         <Route path={Path.payment} element={<Payment />} />
         <Route path={Path.login} element={<Login />} />
