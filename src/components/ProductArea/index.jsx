@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/CartSlice/cartSlice";
 import { Link } from "react-router-dom";
 import { getListProducts } from "../../api/instance";
+import toastr from "toastr";
 
 const ProductArea = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ const ProductArea = () => {
                       className={styles.add_cart}
                       onClick={() => {
                         dispatch(addToCart(product));
+                        toastr.success("Add to cart successfully");
                       }}
                     >
                       Add to cart

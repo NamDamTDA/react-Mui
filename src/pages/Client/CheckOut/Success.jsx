@@ -11,22 +11,24 @@ const Success = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const statusCheckout = searchParams.get("redirect_status");
-  console.log(statusCheckout);
+
   useEffect(() => {
     if (statusCheckout === "succeeded") {
       dispatch(clear());
     }
   }, [statusCheckout, dispatch]);
 
-  setInterval(() => {
-    setCount(count - 1);
-  }, 1000);
-
   useEffect(() => {
-    if (count === 0) {
-      navigate("/");
-    }
-  }, [count, navigate]);
+    const timer = setInterval(() => {
+      setCount((prevState) => prevState - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (count === 0) {
+    navigate("/");
+  }
+
   return (
     <>
       <div className={styles.success}>

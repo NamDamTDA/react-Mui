@@ -26,6 +26,7 @@ const Checkout = () => {
   if (totalPrice === 0 || totalPrice > 2000) {
     shippingPrice = 0;
   }
+
   const onChangeProvince = async (e) => {
     const data = await getDistrict(e.target.value);
     setDistricts(data);
@@ -60,27 +61,27 @@ const Checkout = () => {
               <div className={styles.form_group}>
                 <label htmlFor="">
                   Full Name<span>*</span>
+                  <input
+                    autoComplete="name"
+                    {...register("name", { required: "Please enter the name" })}
+                  />
                 </label>
-                <input
-                  autoComplete="name"
-                  {...register("name", { required: "Please enter the name" })}
-                />
                 {errors.name && <span className={styles.error}>{errors.name.message}</span>}
               </div>
               <div className={styles.form_group}>
-                <label htmlFor="">
+                <label>
                   Email<span>*</span>
+                  <input
+                    autoComplete="email"
+                    {...register("email", {
+                      required: "Please enter the email",
+                      pattern: {
+                        value: validEmail,
+                        message: "Please enter a valid email",
+                      },
+                    })}
+                  />
                 </label>
-                <input
-                  autoComplete="email"
-                  {...register("email", {
-                    required: "Please enter the email",
-                    pattern: {
-                      value: validEmail,
-                      message: "Please enter a valid email",
-                    },
-                  })}
-                />
                 {errors.email && <span className={styles.error}>{errors.email.message}</span>}
               </div>
               <div className={styles.form_group}>
@@ -130,24 +131,26 @@ const Checkout = () => {
                 {errors.ward && <span className={styles.error}>{errors.ward.message}</span>}
               </div>
               <div className={styles.form_group}>
-                <label htmlFor="">
+                <label>
                   Phone<span>*</span>
+                  <input
+                    autoComplete="tel"
+                    {...register("phone", {
+                      required: "Please enter the phone number",
+                      pattern: {
+                        value: validPhone,
+                        message: "Please enter a valid phone",
+                      },
+                    })}
+                  />
                 </label>
-                <input
-                  autoComplete="tel"
-                  {...register("phone", {
-                    required: "Please enter the phone number",
-                    pattern: {
-                      value: validPhone,
-                      message: "Please enter a valid phone",
-                    },
-                  })}
-                />
                 {errors.phone && <span className={styles.error}>{errors.phone.message}</span>}
               </div>
               <div className={styles.form_group}>
-                <label htmlFor="">Order Notes</label>
-                <input />
+                <label>
+                  Order Notes
+                  <input />
+                </label>
               </div>
             </form>
           </div>

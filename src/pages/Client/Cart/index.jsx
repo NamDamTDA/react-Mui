@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 import {
   Box,
@@ -18,17 +18,15 @@ import { Add, DeleteOutline, Remove } from "@mui/icons-material";
 import BrandArea from "../../../components/BrandArea";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalPriceSelector } from "../../../features/CartSlice/selectors";
-import { clear, decrement, deleteItem, increament } from "../../../features/CartSlice/cartSlice";
+import { decrement, deleteItem, increament } from "../../../features/CartSlice/cartSlice";
 import ScrollButton from "../../../components/ScrollButton";
 import { useNavigate } from "react-router";
-import { useSearchParams } from "react-router-dom";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const statusCheckout = searchParams.get("redirect_status");
+
   const totalPrice = useSelector(cartTotalPriceSelector);
   let shippingPrice = 20;
 
@@ -45,12 +43,6 @@ const CartPage = () => {
     dispatch(decrement(id));
   };
   const handleBackToPage = () => navigate(-1);
-
-  useEffect(() => {
-    if (statusCheckout === "succeeded") {
-      dispatch(clear());
-    }
-  }, [statusCheckout, dispatch]);
 
   return (
     <div>
