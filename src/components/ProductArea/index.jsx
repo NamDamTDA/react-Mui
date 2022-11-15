@@ -12,16 +12,17 @@ const ProductArea = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
   const limitedProduct = 5;
   const indexOfLastProduct = currentPage * limitedProduct;
   const indexOfFirstProduct = indexOfLastProduct - limitedProduct;
   const count = Math.ceil(items.length / limitedProduct);
   const products = items.slice(indexOfFirstProduct, indexOfLastProduct);
-  console.log(products);
-  console.log(items);
+
   const handleChange = (event, value) => {
     setCurrentPage(value);
   };
+  
   const gettProducts = async () => {
     const { data: listProduct } = await getListProducts();
     setItems(listProduct);

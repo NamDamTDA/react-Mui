@@ -22,6 +22,7 @@ const Success = () => {
     const timer = setInterval(() => {
       setCount((prevState) => prevState - 1);
     }, 1000);
+    
     return () => clearInterval(timer);
   }, []);
 

@@ -42,6 +42,7 @@ const CartPage = () => {
     if (quantity === 1) return;
     dispatch(decrement(id));
   };
+  
   const handleBackToPage = () => navigate(-1);
 
   return (
