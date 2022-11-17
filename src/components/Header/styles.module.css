@@ -42,10 +42,13 @@
   border-bottom: 0;
   display: block;
 }
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .main_menu {
-  flex: 0 0 auto;
-  width: 41.66666667%;
   margin: 0px;
 }
 .main_menu a {
@@ -61,7 +64,6 @@
   vertical-align: middle;
 }
 .header_right {
-  margin-left: 270px;
   text-align: right;
 }
 .header_right a {

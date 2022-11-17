@@ -1,0 +1,32 @@
+.category h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 20px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.category {
+  margin: 20px;
+  margin-top: 50px;
+}
+ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+.active {
+  color: #79a206;
+  font-weight: 700;
+}
+
+.category ul li a {
+  font-size: 13px;
+  display: block;
+  line-height: 30px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+  color: inherit;
+}

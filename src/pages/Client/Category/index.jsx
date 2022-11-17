@@ -1,45 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { Box, Button, Grid, Pagination, Rating, Skeleton, Stack, Typography } from "@mui/material";
-import styles from "./styles.module.css";
+import { Box, Grid, Rating, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Button } from "react-admin";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/CartSlice/cartSlice";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import toastr from "toastr";
-import { getListProducts } from "../../api/product";
+import { getOneCategory } from "../../../api/category";
+import ListCategoriAside from "../../../components/CategoriAside";
+import { addToCart } from "../../../features/CartSlice/cartSlice";
+import styles from "./styles.module.css";
 
-const ProductArea = () => {
+const Category = () => {
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const limitedProduct = 5;
-  const indexOfLastProduct = currentPage * limitedProduct;
-  const indexOfFirstProduct = indexOfLastProduct - limitedProduct;
-  const count = Math.ceil(items.length / limitedProduct);
-  const products = items.slice(indexOfFirstProduct, indexOfLastProduct);
+  const [category, setCategory] = useState();
+  const [products, setProducts] = useState([]);
 
-  const handleChange = (event, value) => {
-    setCurrentPage(value);
-  };
+  document.title = "Category" + id;
 
-  const gettProducts = async () => {
-    const { data: listProduct } = await getListProducts();
-    setItems(listProduct);
-    setIsLoading(true);
+  const getCategory = async (id) => {
+    const { data } = await getOneCategory(id);
+    setCategory(data);
+    setProducts(data.products);
   };
 
   useEffect(() => {
-    gettProducts();
-  }, []);
+    getCategory(id);
+  }, [id]);
 
-  return (
-    <div>
-      {isLoading ? (
-        <Box component="section" className={styles.product_area}>
-          <Box className={styles.product_container}>
-            <Box className={`${styles.row}`}>
-              {products.map((product) => (
+  return category ? (
+    <>
+      <div className={styles.section_title}>
+        <h4>
+          <b>Home</b> <span>|</span> {category.name}
+        </h4>
+      </div>
+      <div className={styles.show_row}>
+        <ListCategoriAside />
+
+        <div className={styles.product}>
+          <h2>Products</h2>
+          <div className={styles.list_product}>
+            {products.length > 0 ? (
+              products.map((product) => (
                 <Grid key={product.id} className={styles.product_item}>
                   <Box className={styles.product_thumb}>
                     <Link to={`/products/${product.id}`}>
@@ -73,23 +77,19 @@ const ProductArea = () => {
                     </Button>
                   </Box>
                 </Grid>
-              ))}
-            </Box>
-          </Box>
-          <Stack spacing={2} className={styles.select_option}>
-            <Pagination
-              count={count || 10}
-              page={currentPage}
-              onChange={handleChange}
-              color="secondary"
-            />
-          </Stack>
-        </Box>
-      ) : (
-        <Skeleton variant="rectangular" className={styles.product_loading} />
-      )}
-    </div>
-  );
+              ))
+            ) : (
+              <img
+                src="https://cdn.dribbble.com/users/634336/screenshots/2246883/media/21b6eeac8c36a79c6b4b2a1930bd89a6.png"
+                alt="Data Not Found"
+                className={styles.no_data_image}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  ) : null;
 };
 
-export default ProductArea;
+export default Category;

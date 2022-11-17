@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0px;
@@ -11,5 +11,5 @@ body {
 }
 
 code {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }

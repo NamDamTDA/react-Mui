@@ -1,34 +1,14 @@
 import React from "react";
 import { Badge, Box, Container, IconButton, Toolbar, Tooltip } from "@mui/material";
 import Face3Icon from "@mui/icons-material/Face3";
-import {
-  SearchOutlined,
-  ShoppingBasket,
-  ShoppingCartSharp,
-} from "@mui/icons-material";
+import { ShoppingBasket, ShoppingCartSharp } from "@mui/icons-material";
 import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartTotalSelector } from "../../features/CartSlice/selectors";
 import { toggle } from "../../features/CartSlice/uiSlice";
 import { Link } from "react-router-dom";
 import Path from "../../routes/contants";
-
-const icons = [
-  {
-    title: "Search",
-    icon: <SearchOutlined fontSize="large" />,
-  },
-  {
-    title: "User",
-    icon: <Face3Icon fontSize="large" />,
-    link: "/user",
-  },
-  {
-    title: "Go to Cart",
-    icon: <ShoppingBasket fontSize="large" />,
-    link: "/cart",
-  },
-];
+import SearchModal from "../Search";
 
 const Header = () => {
   const total = useSelector(cartTotalSelector);
@@ -55,11 +35,17 @@ const Header = () => {
             </Link>
 
             <Box className={styles.header_right}>
-              {icons.map(({ title, icon, link, items }) => (
-                <Tooltip title={title} key={title} className={styles.header_account_list}>
-                  <Link to={link}>{icon}</Link>
-                </Tooltip>
-              ))}
+              <SearchModal />
+              <Tooltip title="User" className={styles.header_account_list}>
+                <Link to="/user">
+                  <Face3Icon fontSize="large" />
+                </Link>
+              </Tooltip>
+              <Tooltip title="Go to Cart" className={styles.header_account_list}>
+                <Link to="/cart">
+                  <ShoppingBasket fontSize="large" />
+                </Link>
+              </Tooltip>
               <IconButton
                 className={styles.header_cart}
                 aria-label="cart"

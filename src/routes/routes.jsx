@@ -17,30 +17,43 @@ import UserDetail from "../pages/Client/UserDetail";
 import Checkout from "../pages/Client/CheckOut";
 import Payment from "../pages/Client/CheckOut/Payment";
 import Success from "../pages/Client/CheckOut/Success";
+import ScrollToTop from "../components/ScrollToTop";
+import Protected from "../components/Protected";
+import Category from "../pages/Client/Category";
 
 const MainRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<WebsiteLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path={Path.about} element={<AboutPage />} />
-        <Route path={Path.contact} element={<ContactUs />} />
-        <Route path={Path.productList}>
-          <Route index element={<ListProduct />} />
-          <Route path={Path.productDetail} element={<ProductDetail />} />
+    <ScrollToTop>
+      <Routes>
+        <Route path="/" element={<WebsiteLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path={Path.about} element={<AboutPage />} />
+          <Route path={Path.contact} element={<ContactUs />} />
+          <Route path={Path.productList}>
+            <Route index element={<ListProduct />} />
+            <Route path={Path.productDetail} element={<ProductDetail />} />
+          </Route>
+          <Route path={Path.categoryDetail} element={<Category />} />
+          <Route path={Path.cart} element={<CartPage />} />
+          <Route path={Path.success} element={<Success />} />
+          <Route path={Path.checkOut} element={<Checkout />} />
+          <Route path={Path.payment} element={<Payment />} />
+          <Route path={Path.login} element={<Login />} />
+          <Route path={Path.signUp} element={<SignUp />} />
+          <Route path={Path.resetPassword} element={<ResetPassword />} />
+          <Route path={Path.userDetail} element={<UserDetail />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path={Path.cart} element={<CartPage />} />
-        <Route path="/success" element={<Success />} />
-        <Route path={Path.checkOut} element={<Checkout />} />
-        <Route path={Path.payment} element={<Payment />} />
-        <Route path={Path.login} element={<Login />} />
-        <Route path={Path.signUp} element={<SignUp />} />
-        <Route path={Path.resetPassword} element={<ResetPassword />} />
-        <Route path={Path.userDetail} element={<UserDetail />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route path="/admin/*" element={<StoreAdmin />} />
-    </Routes>
+        <Route
+          path="/admin/*"
+          element={
+            <Protected>
+              <StoreAdmin />
+            </Protected>
+          }
+        />
+      </Routes>
+    </ScrollToTop>
   );
 };
 

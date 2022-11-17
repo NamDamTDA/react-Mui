@@ -4,6 +4,7 @@ import { addDoc, collection, getDocs, getFirestore, query, where } from "firebas
 import {
   getAuth,
   GoogleAuthProvider,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithPopup,
 } from "firebase/auth";
@@ -61,10 +62,11 @@ const sendPasswordReset = async (email) => {
   }
 };
 
-
-export {
-  auth,
-  db,
-  signInWithGoogle,
-  sendPasswordReset,
+const sendVerified = () => {
+  sendEmailVerification(auth.currentUser)
+  .then(() => {
+    // Email verification sent!
+    alert("Go to gmail and confirm !! If not seen, check your email spam!");
+  });
 };
+export { auth, db, signInWithGoogle, sendPasswordReset, sendVerified };

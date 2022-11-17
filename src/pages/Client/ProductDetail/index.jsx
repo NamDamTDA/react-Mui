@@ -32,7 +32,7 @@ import ScrollButton from "../../../components/ScrollButton";
 import { addToCart } from "../../../features/CartSlice/cartSlice";
 import toastr from "toastr";
 import styles from "./styles.module.css";
-import { getProduct } from "../../../api/instance";
+import { getProduct } from "../../../api/product";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -110,10 +110,10 @@ const ProductDetail = () => {
                   <Rating name="read-only" value={5} readOnly />
                   <Box className={styles.price_box}>
                     <Typography component="span" className={styles.current_price}>
-                      {product.price}
+                      {product.price}$
                     </Typography>
                     <Typography component="span" className={styles.old_price}>
-                      {product.oldPrice}
+                      {product.oldPrice}$
                     </Typography>
                   </Box>
                   <Typography component="span" className={styles.product_desc}>

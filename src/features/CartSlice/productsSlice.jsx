@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getListProducts } from "../../api/instance";
+import { getListProducts } from "../../api/product";
+
 
 const initialState = { loading: false, list: [] };
 const productsSlice = createSlice({
