@@ -14,10 +14,10 @@ const Success = () => {
   const statusCheckout = searchParams.get("redirect_status");
 
   useEffect(() => {
-    if (statusCheckout === "succeeded") {
+    if (statusCheckout === "succeeded" && count === 0) {
       dispatch(clear());
     }
-  }, [statusCheckout, dispatch]);
+  }, [statusCheckout, dispatch, count]);
 
   useEffect(() => {
     const timer = setInterval(() => {
