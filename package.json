@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 3001 --middlewares ./content-range.js"
   },
-  "proxy": "https://635bb667aa7c3f113dc43c94.mockapi.io/",
+  "proxy": "https://eggplant-sticky-avenue.glitch.me",
   "eslintConfig": {
     "extends": [
       "react-app",

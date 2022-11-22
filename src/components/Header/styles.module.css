@@ -6,7 +6,7 @@
   }
   .row {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .header_right {
     margin-left: 0 !important;
@@ -22,7 +22,7 @@
   }
   .row {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .header_right {
     margin-left: 0 !important;

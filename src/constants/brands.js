@@ -24,11 +24,6 @@ const brands = [
     link: `#`,
     icon: "https://htmldemo.net/lukani/lukani/assets/img/brand/brand5.png",
   },
-  {
-    index: 5,
-    link: `#`,
-    icon: "https://htmldemo.net/lukani/lukani/assets/img/brand/brand6.png",
-  },
 ];
 
 export default brands;

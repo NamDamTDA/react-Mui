@@ -8,8 +8,9 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  margin-left: 19%;
-  margin-top: 98px;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  overflow: hidden;
 }
 
 .icone {

@@ -37,7 +37,10 @@
     margin-right: 40px;
   }
 }
-
+.row {
+  display: flex;
+  justify-content: space-between;
+}
 .widgets_title {
   font-size: 14px !important;
   line-height: 16px !important;
@@ -118,6 +121,7 @@
   line-height: 30px;
   text-transform: capitalize;
   color: #222222;
+  padding-left: 40px;
 }
 .footer_menu ul li a:hover {
   color: #79a206;

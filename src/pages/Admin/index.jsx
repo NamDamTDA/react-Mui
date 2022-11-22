@@ -12,7 +12,7 @@ const StoreAdmin = () => {
       <Admin
         basename="/admin"
         dashboard={AdminPanel}
-        dataProvider={simpleRestProvider("http://localhost:3001")}
+        dataProvider={simpleRestProvider("https://eggplant-sticky-avenue.glitch.me")}
       >
         <Resource name="products" {...Products} />
         <Resource name="users" {...Users} />

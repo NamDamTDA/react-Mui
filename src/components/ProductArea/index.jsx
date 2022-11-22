@@ -13,7 +13,7 @@ const ProductArea = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const limitedProduct = 5;
+  const limitedProduct = 6;
   const indexOfLastProduct = currentPage * limitedProduct;
   const indexOfFirstProduct = indexOfLastProduct - limitedProduct;
   const count = Math.ceil(items.length / limitedProduct);

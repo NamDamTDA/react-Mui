@@ -17,7 +17,7 @@ const Category = () => {
   const [category, setCategory] = useState();
   const [products, setProducts] = useState([]);
 
-  document.title = "Category" + id;
+  document.title = "Category " + id;
 
   const getCategory = async (id) => {
     const { data } = await getOneCategory(id);
