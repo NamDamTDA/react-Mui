@@ -5,6 +5,7 @@ import {
   ExportButton,
   ImageField,
   List,
+  ReferenceField,
   TextField,
   TopToolbar,
 } from "react-admin";
@@ -25,8 +26,11 @@ const productList = () => (
       <TextField source="oldPrice" />
       <TextField source="price" />
       <TextField source="rate" />
-      <TextField source="category_id" />
-
+      <TextField source="sale" />
+      <TextField source="categoryId" />
+      <ReferenceField source="categoryId" reference="categories">
+        <TextField source="name" />
+      </ReferenceField>
       <EditButton basePath="/products" />
     </Datagrid>
   </List>

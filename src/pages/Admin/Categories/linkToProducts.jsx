@@ -17,7 +17,7 @@ const LinkToProducts = () => {
       to={{
         pathname: "/admin/products",
         search: stringify({
-          filter: JSON.stringify({ category_id: record.id }),
+          filter: JSON.stringify({ categoryId: record.id }),
         }),
       }}
     >

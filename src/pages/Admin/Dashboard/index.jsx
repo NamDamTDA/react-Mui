@@ -6,7 +6,7 @@ const AdminPanel = () => {
     <div>
       <Card>
         <CardHeader title="Welcome to Admin Panel" />
-        <CardContent>This is the board to control all the products and users.</CardContent>
+        <CardContent>This is the board to control all the products and categories.</CardContent>
       </Card>
     </div>
   );

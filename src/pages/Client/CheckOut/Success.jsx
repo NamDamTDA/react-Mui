@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { clear } from "../../../features/CartSlice/cartSlice";
 import styles from "./Success.module.css";
 
 const Success = () => {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(20);
+  const carts = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
@@ -22,7 +23,7 @@ const Success = () => {
     const timer = setInterval(() => {
       setCount((prevState) => prevState - 1);
     }, 1000);
-    
+
     return () => clearInterval(timer);
   }, []);
 
@@ -45,6 +46,31 @@ const Success = () => {
           <p>Everything works fine!</p>
           <p>You will come back to Home page on</p>
           <span>{count}</span>
+        </div>
+        <div className={styles.order_table}>
+          <p>Your order here:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Image</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {carts.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    {product.name} <span>x {product.quantity}</span>
+                  </td>
+                  <td>
+                    <img src={product.image} alt="img" width="100px" />
+                  </td>
+                  <td>$ {product.price * product.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </>
