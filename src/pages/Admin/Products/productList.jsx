@@ -22,12 +22,11 @@ const productList = () => (
   <List actions={<ListActions />}>
     <Datagrid>
       <TextField source="name" />
-      <ImageField source="image" sx={{ "& img": { minWidth: 250, minHeight: 250 } }} />
+      <ImageField source="image" sx={{ "& img": { minWidth: 150, minHeight: 150 } }} />
       <TextField source="oldPrice" />
       <TextField source="price" />
       <TextField source="rate" />
       <TextField source="sale" />
-      <TextField source="categoryId" />
       <ReferenceField source="categoryId" reference="categories">
         <TextField source="name" />
       </ReferenceField>

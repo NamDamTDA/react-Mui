@@ -1,4 +1,5 @@
 import { Create, SimpleForm, TextInput } from "react-admin";
+
 export const validateForm = (values) => {
   const errors = {};
   if (!values.name) {
@@ -6,6 +7,7 @@ export const validateForm = (values) => {
   }
   return errors;
 };
+
 const categoryCreate = (props) => (
   <Create {...props}>
     <SimpleForm sx={{ maxWidth: 500 }} validate={validateForm}>
