@@ -1,7 +1,6 @@
 import {
   Add,
   FacebookOutlined,
-  InsertLink,
   Loyalty,
   Pinterest,
   Public,
@@ -187,13 +186,6 @@ const ProductDetail = () => {
                     </Button>
                     <Button variant="contained" className={styles.public} startIcon={<Public />}>
                       Share
-                    </Button>
-                    <Button
-                      variant="contained"
-                      className={styles.linkedin}
-                      startIcon={<InsertLink />}
-                    >
-                      Linked
                     </Button>
                   </Stack>
                 </Box>

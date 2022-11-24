@@ -14,6 +14,11 @@
   .sticky_header {
     max-width: 390px !important;
   }
+  .hamburger {
+    font-size: large;
+    position: fixed !important;
+    right: 2% !important;
+  }
 }
 @media only screen and (max-width: 840px) {
   .main_menu {
@@ -45,7 +50,7 @@
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .main_menu {
@@ -65,6 +70,7 @@
 }
 .header_right {
   text-align: right;
+  padding: 0 20px;
 }
 .header_right a {
   font-size: 24px !important;
@@ -84,4 +90,27 @@
 .header_cart {
   margin-left: 10px !important;
   color: #222 !important;
+}
+.header {
+  background-color: #ffffff !important;
+}
+.drawerContainer {
+  padding: 20px 30px;
+}
+.hamburger {
+  font-size: large;
+  position: fixed !important;
+  right: 20%;
+}
+.main_menu_drawer {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  padding-top: 30px;
+}
+.main_menu_drawer a {
+  margin-right: 20px;
+  color: #79a206;
+  font-weight: 500;
+  padding: 20px;
 }

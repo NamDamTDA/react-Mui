@@ -53,6 +53,7 @@ const SignUp = () => {
   };
   const handleRegister = async () => {
     dispatch(register(users));
+    
   };
 
   useEffect(() => {

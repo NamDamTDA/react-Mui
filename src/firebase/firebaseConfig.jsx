@@ -1,12 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import {
   getAuth,
-  GoogleAuthProvider,
   sendEmailVerification,
   sendPasswordResetEmail,
-  signInWithPopup,
 } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -29,27 +27,8 @@ const firebasApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebasApp);
 const db = getFirestore(firebasApp);
 
-const googleProvider = new GoogleAuthProvider();
 
-const signInWithGoogle = async () => {
-  try {
-    const res = await signInWithPopup(auth, googleProvider);
-    const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
-    }
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
+
 
 const sendPasswordReset = async (email) => {
   try {
@@ -62,11 +41,8 @@ const sendPasswordReset = async (email) => {
   }
 };
 
-const sendVerified = () => {
-  sendEmailVerification(auth.currentUser)
-  .then(() => {
-    // Email verification sent!
-    alert("Go to gmail and confirm !! If not seen, check your email spam!");
-  });
+const sendVerified = async () => {
+  await sendEmailVerification(auth.currentUser);
+  alert("Go to gmail and confirm !! If not seen, check your email spam!");
 };
-export { auth, db, signInWithGoogle, sendPasswordReset, sendVerified };
+export { auth, db, sendPasswordReset, sendVerified };

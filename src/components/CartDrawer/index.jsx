@@ -68,11 +68,7 @@ const CartDrawer = () => {
         {totalPrice > 0 && (
           <Box>
             <CartTotal>Totals: {totalPrice}$</CartTotal>
-            <CheckoutButton
-              onClick={() => navigate("/cart")}
-            >
-              View Cart
-            </CheckoutButton>
+            <CheckoutButton onClick={() => navigate("/cart")}>View Cart</CheckoutButton>
           </Box>
         )}
       </CartContainer>
@@ -99,7 +95,7 @@ const CartContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1300;
   width: 600px;
   height: 100vh;
   padding: 60px 12px 0;

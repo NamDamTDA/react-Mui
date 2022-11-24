@@ -5,7 +5,8 @@ import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
 import Path from "../../../routes/contants";
-import { sendPasswordReset, signInWithGoogle } from "../../../firebase/firebaseConfig";
+import { sendPasswordReset } from "../../../firebase/firebaseConfig";
+
 
 const ResetPassword = () => {
   const passForm = useRef("");
@@ -42,9 +43,7 @@ const ResetPassword = () => {
             <Typography component="p">Enter your email to send link</Typography>
             <Button onClick={() => sendPasswordReset(user.email)}>Send</Button>
             <Link to={Path.signUp}>Don't have an account? SignUp!</Link>
-            <Button className="login__btn login__google" onClick={signInWithGoogle}>
-              Login with Google
-            </Button>
+            
           </Box>
         </ValidatorForm>
       </Box>

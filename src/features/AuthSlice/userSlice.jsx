@@ -1,18 +1,47 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth, db, sendVerified } from "../../firebase/firebaseConfig";
 import toastr from "toastr";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 const initialState = { user: null, error: null };
 
-export const register = createAsyncThunk(
-  "auth/signup",
-  async (data) => await createUserWithEmailAndPassword(auth, data.email, data.password)
-);
+export const register = createAsyncThunk("auth/signup", async (data) => {
+  await createUserWithEmailAndPassword(auth, data.email, data.password);
+  await sendVerified();
+  return await signInWithEmailAndPassword(auth, data.email, data.password);
+});
 export const login = createAsyncThunk(
   "auth/login",
   async (data) => await signInWithEmailAndPassword(auth, data.email, data.password)
 );
+
+const googleProvider = new GoogleAuthProvider();
+
+export const signInWithGoogle = createAsyncThunk("auth/logingg", async () => {
+  try {
+    const res = await signInWithPopup(auth, googleProvider);
+    const user = res.user;
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const docs = await getDocs(q);
+    if (docs.docs.length === 0) {
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name: user.displayName,
+        authProvider: "google",
+        email: user.email,
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+});
 
 const userSlice = createSlice({
   name: "auth",
@@ -36,6 +65,14 @@ const userSlice = createSlice({
       toastr.success("Login successfully _ Have a good day bros!");
     },
     [login.rejected]: (state, action) => {
+      state.error = action.error.code;
+      toastr.error(`Login False _ ${state.error}`);
+    },
+    [signInWithGoogle.fulfilled]: (state, action) => {
+      state.user = action.payload.user;
+      toastr.success("Login successfully _ Have a good day bros!");
+    },
+    [signInWithGoogle.rejected]: (state, action) => {
       state.error = action.error.code;
       toastr.error(`Login False _ ${state.error}`);
     },

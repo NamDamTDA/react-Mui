@@ -1,9 +1,15 @@
+@media only screen and (max-width: 400px) {
+  .style_modal {
+    width: 300px !important;
+    padding: 20px !important;
+  }
+}
 .style_modal {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400;
+  width: 400px;
   background-color: papayawhip;
   border: 2px solid #000;
   box-shadow: 24px;
@@ -17,7 +23,7 @@
   padding-left: 20px;
   outline: none;
   border: 1px solid #b2b2b2;
-  width: 400px;
+  width: 90%;
   border-right-color: transparent;
 }
 .list_product_search {
@@ -46,8 +52,8 @@
 .loading {
   position: absolute;
   display: block;
-  top: calc(50%);
-  left: calc(100% - 150px);
+  top: calc(58%);
+  left: calc(70%);
   width: 30px !important;
   height: 30px !important;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Favorite, FavoriteBorder, Google, Visibility, VisibilityOff } from "@mui/icons-material";
+import { Favorite, FavoriteBorder, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -14,7 +14,7 @@ import styles from "./styles.module.css";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { Link, useNavigate } from "react-router-dom";
 import Path from "../../../routes/contants";
-import { signInWithGoogle } from "../../../firebase/firebaseConfig";
+
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../features/AuthSlice/userSlice";
 
@@ -55,7 +55,7 @@ const Login = () => {
   const handleLogin = () => {
     dispatch(login(users));
   };
-  
+
   useEffect(() => {
     if (user) {
       navigate("/");
@@ -122,9 +122,13 @@ const Login = () => {
             />
             <Button type="submit">Login</Button>
             <Link to={Path.signUp}>Don't have an account? SignUp!</Link>
-            <Button className={styles.login_google} onClick={signInWithGoogle} endIcon={<Google />}>
+            {/* <Button
+              className={styles.login_google}
+              onClick={dispatch(signInWithGoogle())}
+              endIcon={<Google />}
+            >
               Login with Google
-            </Button>
+            </Button> */}
           </Box>
         </ValidatorForm>
       </Box>
