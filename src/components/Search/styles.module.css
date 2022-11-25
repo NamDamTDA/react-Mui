@@ -3,6 +3,10 @@
     width: 300px !important;
     padding: 20px !important;
   }
+  .loading {
+    top: calc(58%);
+    left: calc(70%);
+  }
 }
 .style_modal {
   position: absolute;
@@ -52,7 +56,7 @@
 .loading {
   position: absolute;
   display: block;
-  top: calc(58%);
+  top: calc(40%);
   left: calc(70%);
   width: 30px !important;
   height: 30px !important;
